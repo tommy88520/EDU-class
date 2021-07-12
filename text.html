@@ -1,41 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tests</title>
+    <title>Document</title>
     <style>
+        * {
+            background-size: border-box;
+        }
         .wrap {
-            width: 50%;
+            width: 1000px;
+            height: 100vh;
             display: flex;
-            flex-direction: row ;
-            justify-content: center;
-            border: 1px solid #ccc;
+            justify-content: space-between;
         }
-        .left {
-            width: 50%;
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
         }
-        .right {
-            width: 50%;
-        }
-        .right img {
-            height: 100%;
-            object-fit: cover;
+        .box1 {
+            border: 1px solid black;
+            margin: 15px 200px;
         }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="left">
-            <h3>Lorem, ipsum dolor.</h3>
-            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic veniam, eum repellat at dignissimos, sit quo dolorem sint sed distinctio, consectetur corrupti ad molestias. Impedit possimus maxime nam laboriosam. Maiores.
-           </h1>
-            <p>Lorem, ipsum dolor.</p>
-        </div>
-        <div class="right">
-            <img src="https://pgw.udn.com.tw/gw/photo.php?u=https://uc.udn.com.tw/photo/2021/07/08/1/12923147.jpg&x=0&y=0&sw=0&sh=0&sl=W&fw=800&exp=3600&w=930&nt=1" alt="">
-        </div>
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box2"></div>
     </div>
 </body>
 </html>
