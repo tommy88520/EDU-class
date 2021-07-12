@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grayscale {
+            filter: grayscale(100%);
+        }
+        .sepia {
+            filter: sepia(2);
+        }
+        .contrast{
+            filter: contrast(5);
+        }
+        .blur {
+            filter: blur(10);
+        }
+        .drop-shadow {
+            filter: drop-shadow(5px 5px 5px #333)
+        }
+        .box-shadow {
+            box-shadow: 5px 5px 5px #333;
+        }
+        
+    </style>
+</head>
+<body>
+    <img src="./images/nook_small.jpg" alt="" class="grayscale">
+    <img src="./images/nook_small.jpg" alt="" class="sepia">
+    <img src="./images/nook_small.jpg" alt="" class="contrast">
+    <img src="./images/nook_small.jpg" alt="" class="blur">
+    <img src="./images/heart.png" alt="" class="drop-shadow">
+    <img src="./images/heart.png" alt="" class="box-shadow">
+    <!-- drop-shadow可以圍繞去背的圖 -->
+</body>
+</html>
