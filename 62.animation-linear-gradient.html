@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 300px;
+            height: auto;
+            padding: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+        }
+        .img-wrap {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 60%), rgb(212, 233, 26);
+            background-size: 200% 200%;
+            background-position-x: 120%;
+            animation: loading 1s ease-in-out infinite;
+        }
+        @keyframes loading {
+            to {
+                background-position-x: -20%;
+            }
+        }
+        .text {
+            width: 100%;
+            height: 200px;
+            margin: 10px 0;
+            background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 60%), rgb(212, 233, 26);
+            background-size: 200% 200%;
+            background-position-x: 120%;
+            animation: loading 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="img-wrap"></div>
+        <div class="text"></div>
+    </div>
+</body>
+</html>
