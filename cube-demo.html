@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .camera {
+            width: 200px;
+            height: 200px;
+            perspective:800px;
+            margin:50px;
+            perspective-origin: 50% -150px;
+        }
+        .cube {
+            transform-style: preserve-3D;
+            position: relative;
+            animation: cube-rotateY 10s infinite linear;
+            /* transform-origin: 50% 50%; */
+        }
+        .cube:hover {
+            transform-style: preserve-3D;
+            position: relative;
+            animation: cube-rotateX 10s infinite linear;
+        }
+        .cube div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            text-align: center;
+            line-height: 200px;
+        }
+        .left {
+            background-color: rgb(70, 187, 148);
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .right {
+            background-color: rgba(0, 0, 0, 0.459);
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .top {
+            background-color: rgba(38, 177, 38, 0.438);
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .bottom {
+            background-color: rgba(57, 29, 133, 0.486);
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .front {
+            background-color: rgba(177, 152, 38, 0.432);
+            transform: translateZ(100px);
+        }
+        .behind {
+            background-color: rgba(230, 27, 44, 0.438);
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        @keyframes cube-rotateY {
+            from {
+                transform: rotateY(0)
+            }
+            to {
+                transform: rotateY(360deg)
+            }
+        }
+        @keyframes cube-rotateX {
+            from {
+                transform: rotateX(0)
+            }
+            to {
+                transform: rotateX(360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="camera">
+        <div class="cube">
+            <div class="left">Left</div>
+            <div class="right">Right</div>
+            <div class="top">Top</div>
+            <div class="bottom">Bottom</div>
+            <div class="front">Front</div>
+            <div class="behind">Behind</div>
+
+
+        </div>
+    </div>
+</body>
+</html>

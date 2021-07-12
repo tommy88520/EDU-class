@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            display: flex;
+            flex-direction:row;
+            justify-content: center;
+            height: 100vh;
+            border: 2px solid red ;
+            align-items: flex-end;
+        }
+        .box {
+            width: 30%;
+            height: 200px;
+            background-color: tomato;
+            padding:3px;
+        }
+        .box2 {
+            align-self: center;
+        }
+        .box1 {
+            align-self: start;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+    </div>
+</body>
+</html>

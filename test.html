@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 微軟正黑體;
+      }
+
+      .card {
+        width: 250px;
+        /* height: 100px; */
+        /* min-height: 200px; */
+        background-color: #ccc;
+        text-align: center;
+        padding: 0px 0 15px 0;
+        border-radius: 10px;
+        margin: 60px auto;
+        overflow: hidden;
+        transition: 1s;
+        position: relative;
+      }
+      .card:hover {
+        margin: 40px auto;
+        box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+      }
+      /* --------------------banner-------------------- */
+      .banner {
+        height: 100px;
+        background: url("./images/flowers.jpg");
+        background-size: cover;
+        transition: 1.5s;
+        /* border-radius: 10px 10px 0 0; */
+        /* 也可以不寫圓角，在card寫overflow */
+      }
+      .banner2 {
+        width: 100%;
+        height: 100px;
+        background: url("./images/background1.jpg");
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: 1s;
+      }
+      .card:hover .banner2 {
+        opacity: 1;
+      }
+      /* --------------------頭貼-------------------- */
+      .profile {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: -50px auto 0 auto;
+      }
+      .photo {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+      }
+      .girl {
+        position: absolute;
+        opacity: 1;
+        transition: 1s;
+        left: 0;
+      }
+      .boy {
+        opacity: 0;
+        transition: 1s;
+      }
+      .photo img {
+        width: 100%;
+      }
+
+      .photo:hover .boy {
+        opacity: 1;
+      }
+      .photo:hover .girl {
+        opacity: 0;
+      }
+
+      /* --------------------名字-------------------- */
+      .name {
+        position: absolute;
+        text-align: center;
+        left: 50px;
+        transform: translateX(-50%);
+        border-bottom: 1px solid #000;
+        width: 200px;
+        top: 110px;
+        padding-bottom: 10px;
+      }
+      .name::before {
+        content: "Jean";
+        color: rgb(226, 93, 148);
+        transition: 0.5s;
+      }
+      /* .profile:hover .name::before {
+        content: "Jack";
+        color: rgb(81, 27, 182);
+        letter-spacing: 10px;
+        text-indent: 10px;
+        text-align: center;
+        display: block;
+      } */
+
+      /* --------------------follow me 按鈕-------------------- */
+
+      .wrap {
+        margin-top: 60px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .wrap > a {
+        display: block;
+        /* 為了設定寬高 */
+        color: #000;
+        text-decoration: none;
+        background: linear-gradient(pink, red);
+        border-radius: 5px;
+        margin: 10px auto;
+        width: 75%;
+        transition: 0.5s;
+      }
+      .wrap a:hover {
+        background: rgb(27, 157, 233);
+        color: yellow;
+      }
+      .wrap > button {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        background: linear-gradient(pink, red);
+        border-radius: 5px;
+        margin: 10px auto;
+        width: 60%;
+        border-width: 0px;
+        line-height: 1.5em;
+      }
+      .photo:hover +.name::before {
+        content: "Jack";
+        color: rgb(81, 27, 182);
+        letter-spacing: 10px;
+        text-indent: 10px;
+        text-align: center;
+        display: block;
+      }
+
+      /* a改用button的作法 */
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="banner"></div>
+      <div class="banner2"></div>
+      <div class="profile">
+        <div class="photo">
+          <img class="boy" src="./images/ex1_pic2.jpg" alt="" />
+          <img class="girl" src="./images/ex1_pic1.jpg" alt="" />
+        </div>
+        <p class="name"></p>
+      </div>
+      <div class="wrap">
+        <p>
+          Hello, nice to meet you. Lorem ipsum dolor sit amet consectetur
+          adipisicing.
+        </p>
+        <a class="btn" href="#">Follow me</a>
+      </div>
+    </div>
+  </body>
+</html>
