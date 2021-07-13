@@ -10,9 +10,25 @@
         h1 {
             color: lightblue;
         }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: violet;
+        }
+        @media screen and (min-width:200px) {
+            h1 {
+                color: chartreuse;
+            }
+            .box {
+                background-color: rgb(111, 245, 118);
+            }
+        }
         @media screen and (min-width:576px) {
             h1 {
                 color: lightgreen;
+            }
+            .box {
+                background-color: rgb(65, 67, 223);
             }
         }
 
@@ -20,10 +36,14 @@
             h1 {
                 color: black;
             }
+            .box {
+                background-color: rgb(46, 221, 55);
+            }
         }
     </style>
 </head>
 <body>
     <H1>Hello world</H1>
+    <div class="box"></div>
 </body>
 </html>
