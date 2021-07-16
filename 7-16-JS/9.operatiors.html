@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="info">123</div>
+
+    <script>
+      console.log(!!0);
+      console.log(!!"");
+      console.log(!!null);
+      console.log(!!undefined);
+
+      let a, b, c;
+
+      c = (a = 5) || (b = 7);
+      console.log("a＝", a);
+      console.log("b＝", b);
+      console.log("c＝", c);
+
+      let d, e, f;
+
+      f = (d = 1) && (e = 7);
+      console.log("d＝",d);
+      console.log("e＝", e);
+      console.log("f＝", f);
+    </script>
+  </body>
+</html>
