@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+    <style>
+      .navbar-bg {
+        background-color: #6dcdb1;
+      }
+      .navbar-dark .navbar-nav .show > .nav-link {
+        color: rgba(255, 255, 255);
+      }
+      .navbar-dark .navbar-nav .nav-link {
+        color: rgba(255, 255, 255);
+      }
+      .navbar-dark .navbar-nav .nav-link.disabled {
+        color: rgba(255, 255, 255);
+      }
+      .navbar-dark .navbar-nav .nav-link:hover {
+        border-bottom: 5px solid rgba(255, 255, 255);
+      }
+      .navbar-dark .navbar-nav .nav-link.disabled:hover {
+        border-bottom: 5px solid rgba(255, 255, 255);
+      }
+      .carousel-item {
+        height:400px;
+        object-fit: cover;
+      }
+      .carousel-item:hover img{
+        transform: matrix(1.05, 0, 0, 1.05, 0, 0);
+        transition: .5s;
+      }
+      .text-c {
+        color:#6dcdb1;
+      }
+      .navbar-brand img{
+        height: 50px;
+      }
+      .wide {
+        width: 80px;
+      }
+      .wrap-ig {
+        width: 50px;
+      }
+      .col-md-4 {
+        display:none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark navbar-bg">
+
+        <a class="navbar-brand w-25" href="#">
+          <img src="./logo.svg" alt="">
+        </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+            PRIMAVERA
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">PRIMAVERA 125</a>
+              <a class="dropdown-item" href="#">PRIMAVERA 150</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">更多款式</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link disabled"
+              href="#"
+              tabindex="-1"
+              aria-disabled="true"
+              >聯絡我們</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </div>
+    </nav>
+    <!-- Example split button -->
+    <div class="d-flex d-dropdown justify-content-center bg-light py-3">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle text-body bg-light button1" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          選擇版本
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">VESPA車款</a>
+          <a class="dropdown-item" href="#">PRIMAVERA 125</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex Home-button align-items-center ">
+      <button type="button" class="btn btn-outline-dark border-0">
+        <i class="fas fa-home mr-1"></i>Home</button>
+        <i class="fas fa-angle-double-right"></i>
+      <button type="button" class="btn btn-outline-dark border-0">VESPA 車款</button>
+      <i class="fas fa-angle-double-right"></i>
+      <button type="button" class="btn btn-outline-dark border-0">VESPA PRIMAVERA</button>
+    </div>
+    <div class="d-flex Promote flex-column align-items-center">
+      <h1 class="text-center">啟動PRIMAVERA隨時享春天</h1>
+      <p>不只是騎乘工具</p>
+    </div>
+    <!-- <div class="feature ">
+      <img class="w-100 "src="./hero-models-gateway_Primavera.jpg" alt="">
+    </div> -->
+    <div class="card mb-3">
+      <img src="./hero-models-gateway_Primavera.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title text-center">經典車款回歸</h5>
+        <p class="card-text text-center">超過70年來Vespa帶領年輕世代前進，Vespa Primavera就是最重要的車款之一。   於1968年推出，如今以全新前衛的外觀設計再次現身，除了保留經典之外，Vespa Primavera的車身線條擁有現代風格和時尚魅力，還具備無與倫比的操控性能，輕巧重量搭配最佳的人體工學設計，讓騎士悠閒自在地穿梭市區。   Primavera同時採用堅固無比的鋼製車體、200 mm碟煞、全新前輪懸吊和ABS安全系統，提高安全標準，並以效能優異的現代引擎和具有質感的色彩組合，在城市中輕鬆展現獨家個性。</p>
+      </div>
+    </div>
+    <div class="card mb-3 pt-3">
+      <img src="./feature01.jpg" class="card-img-top" alt="...">
+      <div class="d-flex flex-column align-items-center card-body bg-danger">
+        <img class="my-3"src="./Generic.svg" alt="">
+        <h5 class="card-title text-white text-center">經典車款回歸</h5>
+        <p class="card-text text-white text-center pb-5">超過70年來Vespa帶領年輕世代前進，Vespa Primavera就是最重要的車款之一。   於1968年推出，如今以全新前衛的外觀設計再次現身，除了保留經典之外，Vespa Primavera的車身線條擁有現代風格和時尚魅力，還具備無與倫比的操控性能，輕巧重量搭配最佳的人體工學設計，讓騎士悠閒自在地穿梭市區。   Primavera同時採用堅固無比的鋼製車體、200 mm碟煞、全新前輪懸吊和ABS安全系統，提高安全標準，並以效能優異的現代引擎和具有質感的色彩組合，在城市中輕鬆展現獨家個性。</p>
+      </div>
+    </div>
+    <div class="card mb-3 pt-3">
+      <img src="./feature02.jpg" class="card-img-top" alt="...">
+      <div class="d-flex flex-column align-items-center card-body bg-danger">
+        <img class="my-3"src="./ecology.svg" alt="">
+        <h5 class="card-title text-white text-center">綠色新科技</h5>
+        <p class="card-text text-white text-center pb-5">在品質與安全方面，Vespa Primavera採用比當前「窄版車款」更為先進的技術：全新前輪懸吊搭配安全的底部避震器、11吋輪圈、全新數位儀表板及旅程電腦、LED日行燈及尾燈 (適用於125與150cc)和各種引擎，降低油耗和排氣量，讓環保隨你前行。
+        </p>
+      </div>
+    </div>
+    <div class="card mb-3 pt-3">
+      <img src="./feature03.jpg" class="card-img-top" alt="...">
+      <div class="d-flex flex-column align-items-center card-body bg-danger">
+        <img class="my-3"src="./70.svg" alt="">
+        <h5 class="card-title text-white text-center">VESPA週年慶 限定上路</h5>
+        <p class="card-text text-white text-center pb-5">從1946年Vespa第一款經典的98 cc機車於蓬泰代拉問世。適逢七十週年，Piaggio集團推出特別限定版，紀念全球最受歡迎的機車。   為了慶祝這項重大里程碑，Primavera推出獨家的Azzurro 70冰湖藍與Grigio 70淺銀灰新色。以質感深棕色座墊，搭配對比的米色邊框、前置物箱蓋上方的Vespa 70周年專屬標誌，輪框漆上不凡色調，更能彰顯個人風格。   Vespa 70周年特仕版系列，同時推出與座墊相稱的全新尾箱，能夠安裝於車尾架上，為全系列車款的標準配備。
+        </p>
+      </div>
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide px-3" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./thumb02.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./thumb01.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./thumb03.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="./thumb04.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="card border-0 mb-3 pt-3">
+      <div class="d-flex flex-column align-items-center card-body">
+        <h5 class="card-title text-center bg-light vw-100 mb-0 pt-4 pb-2 text-danger">社群網站詳情</h5>
+        <p class="card-text text-center pb-5 bg-light vw-100">聽聽Vespa Primavera車主怎麼說。點選關注的項目。
+        </p>
+        <img src="./PRIMAVERA-detail-top-view-azzurro-incanto.png" class="card-img-top" alt="...">
+        <h5 class="card-title text-center bg-light vw-100 mb-0 pt-4 pb-2">如果能在 #晴朗的週末 騎著 <span class="text-c">#vespaprimavera</span> 不是一件很棒的事嗎</h5>
+        <p class="card-text text-center pb-5 bg-light vw-100 text-c">@MENG
+        </p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mb-3">
+      <img src="./logo-footer.png" alt="">
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0 text-center">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              車款
+            </button>
+            <!-- <i class="fas fa-chevron-down"></i> -->
+          </h2>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body text-center">
+            PRIMAVERA
+          </div>
+          <div class="card-body text-center">
+            PRIMAVERA 125 
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h2 class="mb-0 text-center">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              配件
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+          <div class="card-body text-center">
+            info1
+          </div>
+          <div class="card-body text-center">
+            info2 
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h2 class="mb-0 text-center">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              經銷商
+            </button>
+          </h2>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body text-center">
+            info1
+          </div>
+          <div class="card-body text-center">
+            info2 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column align-items-center py-5 mb-0">
+      <img class="wide" src="./wide-footer.png" alt="">
+      <img class="wide" src="./vespa-for-children.png" alt="">
+      <div class="ig-fb my-5 d-flex flex-column align-items-center">
+        <h5>追蹤我們</h5>
+        <div class=" d-flex justify-content-center ">
+          <img class="wrap-ig" src="./instagram-icon.png" alt="">
+          <img class="wrap-ig" src="./fb.svg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="footer mt-0 py-5 d-flex flex-column col-md-2">
+      <h7 class="text-center">PRIVACY AND POLICY
+      </h7>
+      <h7 class="text-center">© 2016 PIAGGIO & C S.p.a. - P.IVA 01551260506</h7>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
