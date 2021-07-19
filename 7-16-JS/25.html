@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const p1 = {
+        name: 'David',
+        age: 25,
+        gender: 'male',
+    };
+
+    const ar1 = [12, 'beer', true,'cat'];
+
+    const ar2 = Object.keys(p1);
+    const ar3 = Object.values(p1);
+
+    info.innerHTML += `ar2: ${ JSON.stringify(ar2) } <br>`;
+    info.innerHTML += `ar3: ${ JSON.stringify(ar3) } <br>`;
+    info.innerHTML +=  ar3.join('---') + '<br>'; // 元素接成字串
+
+
+</script>
+</body>
+</html>

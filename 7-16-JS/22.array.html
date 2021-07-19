@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <h2 id="info">
+      <!-- <div class="ball"></div> -->
+    </h2>
+
+    <script>
+      const info = document.querySelector("#info");
+
+      const ar = [12, 'beer', true, {name:'bill'}];
+      //for迴圈
+      for(let i=0 ; i<ar.length; i++) {
+        info.innerHTML += `${ar[i]}<br>`
+      
+      }
+      info.innerHTML+= `-------<br>`
+// for in 迴圈
+      ar['3'] = 'abc';
+      for(let i in ar) {
+        info.innerHTML += `${i}: ${ar[i]}<br>`
+      
+      }
+      info.innerHTML+= `-------<br>`
+      
+      // for-of
+
+      for(let i of ar){
+        info.innerHTML += `${i}<br>`;
+        
+      }
+      // for in 迴圈
+      info.innerHTML+= `-------<br>`
+      for(let s in 'abc') {
+        console.log(s);
+      }
+      
+    </script>
+      
+  </body>
+</html>
