@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+</head>
+<body>
 
-    </style>
-  </head>
-  <body>
-    <h2 id="info">
-      <!-- <div class="ball"></div> -->
-    </h2>
+<h2 id="info"></h2>
 
-    <script>
-      const info = document.querySelector("#info");
+<script>
+    const info = document.querySelector('#info');
 
-      const p1 = {
-        name : 'david',
-        age : 25,
-        gender : 'man'
+    const p1 = {
+        name: 'David',
+        age: 25,
+        gender: 'male',
+    };
 
-      }
-      const p2 = {
-        name : 'Flora',
-        age : 50,
-        gender : 'women'
+    const p2 = {
+        name: 'Flora',
+        age: 23,
+        gender: 'female',
+    };
 
-      }
-      const obj = {}
+    const obj = {};
 
-      obj[p1] = 50;
-      obj[p2] = 200;
-      obj['object Object'] = 700
-      console.log([obj[p1]]); //200 不管p1和p2是什麼都被視為字串
+    obj[p1] = 50;
+    obj[p2] = 200;
+    obj['[object Object]'] = 700;
 
-    </script>
-      
-  </body>
+    console.log( obj[p1] );  // 700 不管p1和p2是什麼都被視為字串
+</script>
+</body>
 </html>

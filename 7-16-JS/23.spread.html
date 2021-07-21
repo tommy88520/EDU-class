@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+</head>
+<body>
 
-    </style>
-  </head>
-  <body>
-    <h2 id="info">
-      <!-- <div class="ball"></div> -->
-    </h2>
+<h2 id="info"></h2>
 
-    <script>
-      const info = document.querySelector("#info");
+<script>
+    // ES6 ... 展開 (spread) 運算子
+    const info = document.querySelector('#info');
 
-      const p1 = {
-        name:'david',
-        age : 25,
+    const p1 = {
+        name: 'David',
+        age: 25,
         gender: 'male',
-      };
-      const ar1 = [12, 'beer', true, 'cat'];
-      const p2 = {...p1, name: 'peter' };
-      const p3 = {name:'peter', ...p1 };
-      info.innerHTML += `p2: ${JSON.stringify(p2)} <br>`;
-      info.innerHTML += `p3: ${JSON.stringify(p3)} <br>`;
+    };
 
-      const ar2 = [ 'hello', ...ar1];
-      const ar3 = [ ...ar1, 'hello'];
-      info.innerHTML += `ar2: ${JSON.stringify(ar2)} <br>`;
-      info.innerHTML += `ar3: ${JSON.stringify(ar3)} <br>`;
+    const ar1 = [12, 'beer', true,'cat'];
 
-    </script>
-      
-  </body>
+    const p2 = { ...p1, name: 'Peter'};
+    const p3 = {name: 'Peter', ...p1 };
+
+    info.innerHTML += `p2: ${ JSON.stringify(p2) } <br>`;
+    info.innerHTML += `p3: ${ JSON.stringify(p3) } <br>`;
+
+    const ar2 = [ 'hello', ...ar1 ];
+    const ar3 = [ ...ar1, 'hi' ];
+
+    info.innerHTML += `ar2: ${ JSON.stringify(ar2) } <br>`;
+    info.innerHTML += `ar3: ${ JSON.stringify(ar3) } <br>`;
+</script>
+</body>
 </html>
