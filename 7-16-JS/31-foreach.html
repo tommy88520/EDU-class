@@ -20,8 +20,17 @@
     ];
     // el=第一個元素,index=索引職,array=拿到整個陣列
     ar.forEach(function(el, index, array){
-        info.innerHTML +=  el.name + '<br>';
+         info.innerHTML +=  el.name + '<br>';
+        // return el.name==='flora';
     });
+    // info.innerHTML += JSON.stringify(ar) + '<br>';
+
+    // const ar2 = ar.forEach(function(el, index, array){
+    //     return el.age===25;
+    // });
+    
+    // info.innerHTML += JSON.stringify(ar2) + '<br>';
+
 
     let totalAge = 0;
     ar.forEach(function(el){

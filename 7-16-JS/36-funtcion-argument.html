@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info" >123</h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    // function 函式名稱(參數列) {
+     //   函式的主體
+    // }
+
+    function func(n) {
+    console.log(n);
+        console.log(arguments);
+        console.log(...arguments);
+    };
+    func(2,5,7);
+
+    //es6用法 會被轉換成陣列
+
+    function func2(a, ...m){
+        console.log(a);//5設定給a
+        console.log(m);//7、設定給m
+    }
+    func2(5,7,9);
+
+    function func3( a=10 , ...m){
+        console.log(a);//5設定給a
+        console.log(m);//7、設定給m
+    }
+    func3(5,7,9);//a=5
+    func3();//a=預設值10
+
+    const ar = [3, 9, 12, 5, 18];
+    console.log(Math.max(...ar))
+</script>
+</body>
+</html>

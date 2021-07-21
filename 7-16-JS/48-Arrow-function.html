@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const f1 = n => n*n ;
+    const f2 = n => {
+        return n*3; //要加return才有值
+    }
+    info.innerHTML += f1(7) + '<br>';
+    info.innerHTML += f2(7) + '<br>';
+    info.innerHTML += f1(8) + '<br>';
+    info.innerHTML += f2(8) + '<br>';
+
+
+</script>
+</body>
+</html>

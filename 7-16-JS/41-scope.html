@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    var a =100;
+    var b =200;
+    var c =300;
+
+    //  以指定運算的方式，定義函式 
+    //function裡面沒形式參數所以會往外層找相同名稱的變數
+    (function(/*裡面沒形式參數*/) {
+        var a =10;
+        var b =20;
+        var c =30;
+        console.log(a,b,c);
+
+        (function(/*裡面沒形式參數*/) {
+            var a =1;
+            var b =2;
+            var c =3;
+            console.log(a,b,c);
+            
+            (function(/*裡面沒形式參數*/) {  
+                
+                console.log(a,b ,c);
+            })();
+        })();
+
+    })();
+
+
+    
+
+</script>
+</body>
+</html>

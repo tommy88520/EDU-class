@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info" >123</h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    // function 函式名稱(參數列) {
+     //   函式的主體
+    // }
+
+    function func(n) {
+        return n*n
+    };
+    func(5);//傳統的定義有提升的效果，在定義之前就可以呼叫
+    info.innerHTML = func(5)*4 + '<br>';
+    // info.innerHTML += n*n + '</br>';
+    // info.innerHTML += v + '<br>';
+
+</script>
+</body>
+</html>

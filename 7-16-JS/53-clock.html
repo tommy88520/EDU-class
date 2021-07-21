@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .clock {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        border: black 1px solid;
+        background-color: #c6eef5;
+      }
+      .hand {
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 300px;
+        top: 300px;
+      }
+      .sec-hand {
+        z-index: 2;
+        position: absolute;
+        width: 4px;
+        height: 250px;
+        border-radius: 2px;
+        background-color: rgb(4, 0, 255);
+        left: -2px;
+        top: -250px;
+      }
+      .min-hand {
+        position: absolute;
+        width: 4px;
+        height: 280px;
+        border-radius: 2px;
+        background-color: #f00;
+        left: -2px;
+        top: -280px;
+      }
+      .hour-hand {
+        z-index: 3;
+        position: absolute;
+        width: 4px;
+        height: 200px;
+        border-radius: 2px;
+        background-color: rgb(251, 255, 0);
+        left: -2px;
+        top: -200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="hand secHand">
+        <div class="sec-hand"></div>
+      </div>
+      <div class="hand minhand">
+        <div class="min-hand"></div>
+      </div>
+      <div class="hand hourhand">
+        <div class="hour-hand"></div>
+      </div>
+    </div>
+
+    <script>
+      const info = document.querySelector("#info");
+      const secHand = document.querySelector(".secHand");
+
+      const runClock = () => {
+        const now = new Date();
+        secHand.style.transform = `rotate(${now.getSeconds() * 6}deg)`;
+        setTimeout(runClock, 1000);
+      };
+
+      runClock();
+
+      const minhand = document.querySelector(".minhand");
+
+      const runClock2 = () => {
+        const now2 = new Date();
+        minhand.style.transform = `rotate(${now2.getMinutes() * 6}deg)`;
+        setTimeout(runClock2, 60000);
+      };
+
+      runClock2();
+
+      const hourhand = document.querySelector(".hourhand");
+
+      const runClock3 = () => {
+        const now3 = new Date();
+        hourhand.style.transform = `rotate(${now3.getHours()* 6}deg)`;
+        setTimeout(runClock3, 1000);
+      };
+
+      runClock3();
+    </script>
+  </body>
+</html>

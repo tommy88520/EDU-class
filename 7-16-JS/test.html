@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-    <script>
-        const a = [{}]
-    </script>
-</body>
+  </head>
+  <body onload="ShowTime()">
+
+    <div id="showbox"></div>
+
+    <script language="JavaScript">
+
+        const showbox = document.querySelector('#showbox');
+        function ShowTime(){
+        　const now = new Date();
+        　const h=now.getHours();
+        　const m=now.getMinutes();
+        　const s=now.getSeconds();　
+          showbox.innerHTML = 
+          h + ':' + m + ':' + s + '秒'
+        // 　document.getElementById('showbox').innerHTML = h+':'+m+':'+s+'';
+        　setTimeout('ShowTime()',1000);
+        }
+        // 
+        </script>
+
+  </body>
 </html>
+
