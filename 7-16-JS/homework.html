@@ -5,27 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    
 </head>
 <body>
 
 <h2 id="info"></h2>
 
+
+<script src="./dayjs.min.js"></script>
 <script>
     const info = document.querySelector('#info');
 
-    // const f1 = n => n*n ;
-    const f1 = function(n) { 
-        return n*n
+    const runClock = ()=>{
+        info.innerHTML = dayjs().format('YYYY-MM-DD HH:mm:ss');
+        setTimeout(runClock, 1000);
     }
-    const f2 = n => {
-        return n*3; //要加return才有值
-    }
-    info.innerHTML += f1(7) + '<br>';
-    info.innerHTML += f2(7) + '<br>';
-    info.innerHTML += f1(8) + '<br>';
-    info.innerHTML += f2(8) + '<br>';
-
-
+    runClock();
 </script>
 </body>
 </html>

@@ -17,18 +17,17 @@
     const func = function(ar, b) {
         ar.pop();
         b--;
-
     };
 
     const ar1 = [7,8,9,10];
-    let a = 100;
+    let a = 5;
 
     info.innerHTML +=  ar1 + '<br>';
     info.innerHTML +=  a + '<br>';
     func(ar1, a);  // call by reference, call by value
     info.innerHTML +=  ar1 + '<br>';
     info.innerHTML +=  a + '<br>';
-
+    // console.log(b)
     //當ar是複雜類型是參照類型,所以外面數值也會被變更，因為b只是數值所以a只是把數值丟給他 跟b沒關係
 
 </script>

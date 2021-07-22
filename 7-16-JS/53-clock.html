@@ -69,34 +69,40 @@
     <script>
       const info = document.querySelector("#info");
       const secHand = document.querySelector(".secHand");
+      const minhand = document.querySelector(".minhand");
+      const hourhand = document.querySelector(".hourhand");
 
       const runClock = () => {
         const now = new Date();
-        secHand.style.transform = `rotate(${now.getSeconds() * 6}deg)`;
-        setTimeout(runClock, 1000);
+        minhand.style.transform = `rotate(${now.getMinutes()*6}deg)`;
+
+        secHand.style.transform = `rotate(${now.getSeconds()*6 + now.getMilliseconds()*0.006}deg)`;
+        hourhand.style.transform = `rotate(${ now.getHours()*30 + now.getMinutes()*.5 }deg)`
+        //hourhand.style.transform = `rotate(${ now.getHours()*30 + now.getMinutes()*.5 }deg)`
+        ;
+
+        setTimeout(runClock, 40);//因為畫面一秒鐘更換一個就夠了，不用做三個
       };
 
-      runClock();
+       runClock();
 
-      const minhand = document.querySelector(".minhand");
 
-      const runClock2 = () => {
-        const now2 = new Date();
-        minhand.style.transform = `rotate(${now2.getMinutes() * 6}deg)`;
-        setTimeout(runClock2, 60000);
-      };
+    //   const runClock2 = () => {
+    //     const now2 = new Date();
+    //     minhand.style.transform = `rotate(${now2.getMinutes() * 6}deg)`;
+    //     setTimeout(runClock2, 60000);
+    //   };
 
-      runClock2();
+    //   runClock2();
 
-      const hourhand = document.querySelector(".hourhand");
 
-      const runClock3 = () => {
-        const now3 = new Date();
-        hourhand.style.transform = `rotate(${now3.getHours()* 6}deg)`;
-        setTimeout(runClock3, 1000);
-      };
+    //   const runClock3 = () => {
+    //     const now3 = new Date();
+    //     hourhand.style.transform = `rotate(${now3.getHours()* 6}deg)`;
+    //     setTimeout(runClock3, 1000);
+    //   };
 
-      runClock3();
+    //   runClock3();
     </script>
   </body>
 </html>

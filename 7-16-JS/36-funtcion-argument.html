@@ -22,9 +22,9 @@
         console.log(arguments);
         console.log(...arguments);
     };
-    func(2,5,7);
+    func(2,5,7);//雖然給了三個 argument可以拿到三個
 
-    //es6用法 會被轉換成陣列
+    //es6用法 展開後會被轉換成陣列
 
     function func2(a, ...m){
         console.log(a);//5設定給a

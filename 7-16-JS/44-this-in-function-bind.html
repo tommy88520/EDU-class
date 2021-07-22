@@ -16,7 +16,7 @@
 let count = 0;
 
     const f = function(){
-        console.log(++cpunt, this, this.name);
+        console.log(++count, this, this.name);
     };
 
     const obj1 = { f: f, name: 'Obj1' };
@@ -28,7 +28,7 @@ let count = 0;
     obj2.f();
     f.call(obj1);//call可以指定呼叫誰
 
-    const f2 = f.find(obj2);
+    const f2 = f.bind(obj2);
     f2();
 </script>
 </body>

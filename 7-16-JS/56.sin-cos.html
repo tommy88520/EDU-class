@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            background-color: #F00;
+            color: white;
+            border: gray 1px solid;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+<div id="rect">
+<!--    <div class="ball">7</div>-->
+
+</div>
+<script>
+    const rect = document.querySelector('#rect');
+
+    const num = 12; // 排成圓形 (環狀)
+    const angUnit = Math.PI*2/num; // 單位角度
+
+    const data = {};
+
+    for(let i=0; i<num; i++){
+        let b = document.createElement('div');
+        b.className = 'ball';
+        b.innerHTML = i+1;
+        b.id = 'b'+ (i+1);
+
+        // 第一個位罝的座標
+        data[b.id] = {x1: 400-20 , y1: 300-20};
+        b.style.left = data[b.id].x1 + 'px';
+        b.style.top = data[b.id].y1 + 'px';
+
+        // 第二個位罝的座標
+        data[b.id].x2 = 400 - 20 + 200*Math.cos(i*angUnit);
+        data[b.id].y2 = 300 - 20 + 200*Math.sin(i*angUnit);
+        rect.appendChild(b);
+    }
+
+    setTimeout(()=>{
+        for(let i=1; i<=12; i++){
+            const b = document.querySelector('#b'+i);
+            b.style.left = data[b.id].x2 + 'px';
+            b.style.top = data[b.id].y2 + 'px';
+        }
+    }, 2000);
+
+</script>
+</body>
+</html>
