@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .big-ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+            background-color: #4e869f;
+            color: white;
+            border: gray 1px solid;
+            left: 370px;
+            top: 270px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<a href="https://tw.yahoo.com/" onclick="console.log('yahoo')">yahoo</a>
+<a href="javascript: f()" class="pc">假連結</a>
+
+<a href="https://shopping.pchome.com.tw/" onclick="return false">pchome</a>
+<script>
+
+    const info = document.querySelector('.pc')
+   function f(){
+    console.log('hello')
+    info.innerHTML += `好棒棒<br>`
+   }
+
+
+</script>
+</body>
+</html>

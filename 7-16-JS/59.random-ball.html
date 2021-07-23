@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            background-color: #F00;
+            color: white;
+            border: gray 1px solid;
+        }
+    </style>
+</head>
+<body>
+<div id="rect">
+<!--    <div class="ball">7</div>-->
+
+</div>
+<script>
+    const rect = document.querySelector('#rect');
+    const balls = [];
+
+    function randomRGB() {
+        let c = Math.floor(16777216*Math.random());
+        c = c.toString(16); // 轉換為 16 進位的字串
+        return '#' + '000000'.slice(c.length) + c;
+    }
+
+    for(let i=0; i<100; i++){
+        let b = document.createElement('div');
+        const size = 15 + Math.floor(Math.random()*16);
+        b.className = 'ball';
+        b.style.top = Math.floor(Math.random()*600) +'px';
+        b.style.left = Math.floor(Math.random()*800) +'px';
+        b.style.width = size +'px';
+        b.style.height = size +'px';
+        b.style.backgroundColor = randomRGB();
+        balls.push(b);
+        rect.appendChild(b);
+    }
+
+    function doAni(){
+        for(let b of balls){
+            const dx = Math.floor(Math.random()*5)-2;
+            const dy = Math.floor(Math.random()*5);
+            b.style.top = parseInt(b.style.top)-dy +'px';
+            b.style.left = parseInt(b.style.left)+dx +'px';
+        }
+
+        setTimeout(doAni, 30);
+    }
+    doAni();
+
+
+</script>
+</body>
+</html>

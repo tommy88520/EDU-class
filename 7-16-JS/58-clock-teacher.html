@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- a20210722-03-clock.html -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,17 +56,15 @@
             height: 0;
             left: 300px;
             top: 300px;
-
         }
-        .ticks-container {
+        .tick-c {
             position: absolute;
         }
         .tick {
             position: absolute;
-            width: 2px;
-            height: 40px;
-            /* border-radius: 2px; */
-            background-color: rgba(12, 3, 3, 0.671);
+            width: 1px;
+            height: 10px;
+            background-color: black;
             left: 0px;
             top: -300px;
         }
@@ -76,13 +75,7 @@
 <body>
 
 <div class="clock">
-    <div class="ticks">
-        <div class="ticks-container style="transform: rotate(60deg)">
-            <div class="tick"></div>
-        </div>
-    </div>
-
-
+    <div class="ticks"></div>
 
     <div class="hand hrHand">
         <div class="hr-hand"></div>
@@ -96,9 +89,33 @@
 </div>
 
 <script>
+    const ticks = document.querySelector('.ticks');
     const secHand = document.querySelector('.secHand');
     const minHand = document.querySelector('.minHand');
     const hrHand = document.querySelector('.hrHand');
+
+    // template function
+    const tick_tpl = o => {
+        let width=1, height=10, left=0;
+        if(o.big){
+            width = 4;
+            height = 15;
+            left = -2;
+        }
+
+        return `<div class="tick-c" style="transform: rotate(${o.deg}deg);">
+            <div class="tick" style=" width: ${width}px; height: ${height}px; left: ${left}px;"></div>
+        </div>`;
+    }
+
+    let str = '';
+    for(let i=0; i<60; i++){
+        str += tick_tpl({
+            deg: i*6,
+            big: i%5===0,
+        });
+    }
+    ticks.innerHTML = str;
 
     const runClock = ()=>{
         const now = new Date;
