@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const ar = [
+        {name: 'david', age: 25},
+        {name: 'flora', age: 26},
+        {name: 'carl', age: 28},
+    ];
+    // el=第一個元素,index=索引職,array=拿到整個陣列
+    ar.forEach(function(el, index, array){
+         info.innerHTML +=  el.name + '<br>';
+        // return el.name==='flora';
+    });
+    // info.innerHTML += JSON.stringify(ar) + '<br>';
+
+    // const ar2 = ar.forEach(function(el, index, array){
+    //     return el.age===25;
+    // });
+    
+    // info.innerHTML += JSON.stringify(ar2) + '<br>';
+
+
+    let totalAge = 0;
+    ar.forEach(function(el){
+        totalAge += el.age;
+    });
+    info.innerHTML +=  totalAge + '<br>';
+
+</script>
+</body>
+</html>

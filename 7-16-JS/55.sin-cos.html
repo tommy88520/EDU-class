@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+      }
+      .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #ff2f27;
+        border-radius: 50%;
+        color: white;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid #b0e9ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rect">
+      <!-- <div class="ball"></div> -->
+    </div>
+
+    <script>
+      const rect = document.querySelector("#rect");
+
+
+        const num = 12;
+        const angUnit = Math.PI*2/num;
+
+        const ar = {};
+
+      for (let i = 0; i < num ; i++) {
+        b = document.createElement("div");
+        b.className = "ball";
+
+        b.innerHTML = i+1;
+        //鏡面數字大家都泥泥時轉60度
+        b.style.left = 400 - 20 + 200*Math.cos(i*angUnit - Math.PI/3) + "px";
+        b.style.top = 300 - 20 + 200*Math.sin(i*angUnit - Math.PI/3) + "px";
+
+        rect.appendChild(b);
+      }
+    </script>
+  </body>
+</html>

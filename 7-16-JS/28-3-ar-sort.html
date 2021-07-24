@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="btn red bold">Hello</div>
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const ar = [10, 20, 30, 40, 50];
+    let ar2 = [...ar];
+    //刪除取出元素
+    info.innerHTML +=  ar2.splice(2, 2) + '<br>';
+    info.innerHTML +=  ar2 + '<br>';
+    //新增元素
+    ar2 = [...ar];
+    info.innerHTML +=  ar2.splice(1, 0, 'Davis', 'emma') + '<br>';
+    info.innerHTML +=  ar2 + '<br>';
+//取代
+    ar2 = [...ar];
+    info.innerHTML +=  ar2.splice(1, 2, 'Davis', 'emma') + '<br>';
+    info.innerHTML +=  ar2 + '<br>';
+
+
+
+
+
+    
+ 
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    //  以指定運算的方式，定義函式 
+    //function裡面沒東西所以會往外層找相同名稱的變數
+    const func = function(/*裡面沒東西*/) {
+        ar.pop();
+        a--;
+        info.innerHTML +=  'function 裡面:<br>';
+        info.innerHTML +=  JSON.stringify(ar) + '<br>';
+        info.innerHTML +=  a + '<br>';
+    };
+
+    const ar = [7,8,9,10];
+    let a = 100;
+
+    func(ar, a);
+
+    info.innerHTML +=  'function 外面:<br>';
+    info.innerHTML +=  JSON.stringify(ar) + '<br>';
+    info.innerHTML +=  a + '<br>';
+    
+
+</script>
+</body>
+</html>

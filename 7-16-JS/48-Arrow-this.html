@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+    const obj = {
+        n:0,
+        f1: function(){
+            this.n++;
+        },
+
+        f2: ()=> {
+            this.n --;
+        },//箭頭韓式不能用call  find apply
+        
+        f3(){
+            this.n *=10
+        },
+
+        f4:this,
+    };
+    obj.f1();
+    obj.f1();
+    info.innerHTML += obj.n + '<br>';
+    obj.f2();
+    info.innerHTML += obj.n + '<br>';
+    obj.f3();
+    info.innerHTML += obj.n + '<br>';
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

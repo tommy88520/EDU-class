@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展開指定</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    // ES6 ... 展開 (spread) 運算子
+    const info = document.querySelector('#info');
+
+    const p1 = {
+        name: 'David',
+        age: 25,
+        gender: 'male',
+    };
+
+    const ar1 = [12, 'beer', true, 'cat'];
+
+    const {name, age} = p1;  // 展開指定
+    const {name: nickname } = p1;
+
+
+    info.innerHTML += `name: ${ name } <br>`;
+    info.innerHTML += `age: ${ age } <br>`;
+    info.innerHTML += `nickname: ${ nickname } <br>`;
+
+    // 當屬性名稱和變數同名
+    const p2 = {nickname, age};
+    info.innerHTML += `p2: ${ JSON.stringify(p2) } <br>`;
+
+    const [e1, e2] = ar1;  // 展開指定
+    info.innerHTML += `e1: ${ e1 } <br>`;
+    info.innerHTML += `e2: ${ e2 } <br>`;
+</script>
+</body>
+</html>

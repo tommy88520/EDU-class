@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    let a =100;
+    let b =200;
+    if(b>a) {
+        let c = 300;
+        var d = 400;
+        (function(/*裡面沒東西*/) {
+            let a =10;
+            let b =20;
+    
+        })();
+    }
+    console.log(a,b ,d) //看不到c
+
+    //let and const遇到任何大括號就會變成區域變數
+    //var宣要只有在function的{}才會變成區域變數同41.scope
+
+
+
+    
+
+</script>
+</body>
+</html>

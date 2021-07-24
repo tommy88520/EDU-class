@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>1</td>
+        <td class="myclass">2</td> 
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="myclass">5</td>
+        <td>6</td>
+      </tr>
+    </table>
+    <script>
+      var td1 = document.querySelector("td");
+      var td2 = document.querySelectorAll("td");
+      var td3 = document.querySelector(".myclass");
+      var td4 = document.querySelectorAll(".myclass");
+
+      const table = document.querySelector('table');
+      const td5 = table.querySelectorAll('.myclass')[1];
+    //   會先找整個document再找table裏面
+    console.log(td5.closest('table'))
+    // closest()會往外找一層符合的標籤
+    </script>
+  </body>
+</html>

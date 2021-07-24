@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+let count = 0;
+
+    const f = function(){
+        console.log(++count, this, this.name);
+    };
+
+    const obj1 = { f: f, name: 'Obj1' };
+    const obj2 = { f, name: 'Obj2' };
+
+    console.log(this);
+    f();
+    obj1.f();
+    obj2.f();
+    f.call(obj1);//call可以指定呼叫誰
+
+    const f2 = f.bind(obj2);
+    f2();
+</script>
+</body>
+</html>
