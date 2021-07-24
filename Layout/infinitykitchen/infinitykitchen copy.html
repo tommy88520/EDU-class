@@ -27,8 +27,8 @@
         height: 12px;
       }
       .relate-brand img{
-        width: 200px;
-        height:200px;
+        width: 100%;
+        height:100%;
         object-fit: cover;
       }
       .relate-brand {
@@ -52,7 +52,24 @@
         /* border: 1px solid rgba(121, 115, 115, 0.192); */
         margin: 20px 0;
       }
-      .facebook svg {
+    
+      .facebook {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+      }
+      .facebook svg{
+        width: 16px;
+        height: 16px;
+        
+      }
+      .instagram {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+
+      }
+      .instagram svg{
         width: 16px;
         height: 16px;
       }
@@ -507,16 +524,26 @@
         </li>
       </ul>
     </div>
-    <div class="icon-section">
-      <div class="facebook">
-        <svg class="bg-dark">
+    <!-- icon-facebook-ig -->
+    <div class="icon-section d-flex justify-content-center my-4">
+      <div class="facebook bg-dark d-flex justify-content-center align-items-center mx-3">
+        <svg class="">
           <path d="M11.525 5.9h-2.52V4.5c0-.722.06-1.177 1.117-1.177h1.336V1.097A18.82 18.82 0 009.5 1C7.56 1 6.145 2.16 6.145 4.29V5.9H4v2.8h2.145V15h2.86V8.698h2.192l.328-2.798z" fill="#FFF" fill-rule="nonzero"></path>
         </svg>
-        
       </div>
-      <div class="">
-        <img src="" alt="">
+      <div class="instagram bg-dark d-flex justify-content-center align-items-center mx-3">
+        <svg class="">
+          <path d="M4.889 1A3.888 3.888 0 001 4.889v6.222A3.888 3.888 0 004.889 15h6.222A3.888 3.888 0 0015 11.111V4.89C15 2.74 13.259 1 11.111 1H4.89zm7.778 1.556a.777.777 0 110 1.554.777.777 0 010-1.554zM8 4.11a3.89 3.89 0 11-.002 7.778A3.89 3.89 0 018 4.111zm0 1.556a2.333 2.333 0 100 4.664 2.333 2.333 0 000-4.663z" fill="#FFF" fill-rule="nonzero"></path>
+        </svg>
       </div>
+    </div>
+    <!-- 立即點餐 -->
+    <div class="button-section d-flex justify-content-center my-5">
+      <button type="button" class="btn btn-warning w-25 text-light">立即點餐</button>
+    </div>
+    <!-- footer -->
+    <div class="footer text-center">
+      <p class="index__coty-right___qAM9b">© 無限廚房 ALL RIGHTS RESERVED</p>
     </div>
     
 
