@@ -46,6 +46,10 @@
     });
 
     bigBall.addEventListener('click', function(){
+        console.log('hi');
+    });
+
+    bigBall.addEventListener('click', function(){
         console.log(5, this);
     });
 
@@ -54,10 +58,10 @@
     });
 
 
-    // 會覆蓋行內的事件處理器的定義方式
-    bigBall.onclick = function(){
-        console.log(2);
-    };
+    // // 會覆蓋行內的事件處理器的定義方式
+    // bigBall.onclick = function(){
+    //     console.log(2);
+    // };
 
 </script>
 </body>
