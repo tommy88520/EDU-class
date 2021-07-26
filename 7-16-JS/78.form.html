@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form name="form1" method="get">
+    <label for="account">帳號</label>
+    <input type="text" id="account" name="account"
+           value="john"
+           placeholder="帳號"><br>
+    <label for="password">密碼</label>
+    <input type="password" id="password" name="password"
+           placeholder="密碼"><br>
+
+    <textarea name="ta" id="ta" cols="30" rows="3">777</textarea>
+    <br>
+
+    <input type="radio" name="radio1" id="radio1_a" value="慢跑"><label for="radio1_a">慢跑</label><br>
+    <input type="radio" name="radio1" id="radio1_b" value="爬山"><label for="radio1_b">爬山</label><br>
+    <input type="radio" name="radio1" id="radio1_c" value="游泳"><label for="radio1_c">游泳</label><br>
+    <br>
+    <input type="checkbox" name="cb1" id="cb1" value="2"><label for="cb1">慢跑</label><br>
+    <input type="checkbox" name="cb2" id="cb2" value="4"><label for="cb2">爬山</label><br>
+    <input type="checkbox" name="cb3" id="cb3" value="6"><label for="cb3">游泳</label><br>
+    <br>
+
+    <!-- combobox -->
+    <select name="sel" id="">
+        <option value="1">甲</option>
+        <option value="2">乙</option>
+        <option value="3">丙</option>
+        <option value="4">丁</option>
+    </select>
+    <br>
+    <input type="submit">
+</form>
+
+
+<script>
+
+    console.log( document.form1.elements );
+
+
+</script>
+</body>
+</html>
