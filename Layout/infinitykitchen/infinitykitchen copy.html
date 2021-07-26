@@ -20,23 +20,21 @@
         height: 500px;
         object-fit: cover;
       }
-      .ig img{
+      .ig img {
         height: 100px;
       }
       .by-name p {
         height: 12px;
       }
-      .relate-brand img{
+      .relate-brand img {
         width: 100%;
-        height:100%;
+        height: 100%;
         object-fit: cover;
       }
       .relate-brand {
-        width: 90%;
-        height: 90%;
-        display:flex;
+        height: 95%;
+        display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         border: 1px solid rgba(121, 115, 115, 0.192);
 
@@ -45,52 +43,60 @@
       .promote-img-section {
         width: 100%;
         height: 90%;
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         /* border: 1px solid rgba(121, 115, 115, 0.192); */
         margin: 20px 0;
       }
-    
+
       .facebook {
         width: 40px;
         height: 40px;
         border-radius: 20px;
       }
-      .facebook svg{
+      .facebook svg {
         width: 16px;
         height: 16px;
-        
       }
       .instagram {
         width: 40px;
         height: 40px;
         border-radius: 20px;
-
       }
-      .instagram svg{
+      .instagram svg {
         width: 16px;
         height: 16px;
+      }
+      .us-info-text {
+        line-height: 1.5rem;
       }
     </style>
   </head>
   <body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">INFINITY <br>KITCHEN</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="d-flex">
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">INFINITY<br />KITCHEN</a>
+      </div>
 
+      <div class="button-section">
+        <button type="button" class="btn btn-warning text-light">
+          立即點餐
+        </button>
+      </div>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -210,13 +216,13 @@
     </div>
     <!-- section-icon -->
     <div class="promote-section d-flex flex-wrap">
-      <div class="icon1 col-6 col-md-3">
+      <div class="icon1 col-6 col-md-3 my-5 d-flex flex-column align-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="96"
           height="96"
           viewBox="0 0 96 96"
-          class="index__icon___2kj3t"
+          class="index__icon___2kj3t my-3"
         >
           <g fill="none" fill-rule="evenodd">
             <path
@@ -253,13 +259,13 @@
         <p>主廚精選你最喜愛的餐點</p>
         <p>讓你足不出戶嚐遍無限美食</p>
       </div>
-      <div class="icon2 col-6 col-md-3">
+      <div class="icon2 col-6 col-md-3 my-5 d-flex flex-column align-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="96"
           height="96"
           viewBox="0 0 96 96"
-          class="index__icon___2kj3t"
+          class="index__icon___2kj3t my-3"
         >
           <g fill-rule="nonzero" fill="none">
             <path
@@ -277,15 +283,16 @@
           </g>
         </svg>
         <p>高貴不貴</p>
-        <p>不只吃飽，還要讓你吃巧 無限用心滿足每個挑嘴的你</p>
+        <p class="text-center">不只吃飽，還要讓你吃巧 <br>
+          無限用心滿足每個挑嘴的你</p>
       </div>
-      <div class="icon3 col-6 col-md-3">
+      <div class="icon3 col-6 col-md-3 my-5 d-flex flex-column align-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="96"
           height="96"
           viewBox="0 0 96 96"
-          class="index__icon___2kj3t"
+          class="index__icon___2kj3t my-3"
         >
           <g transform="translate(4 9)" fill="none" fill-rule="evenodd">
             <path
@@ -307,15 +314,15 @@
           </g>
         </svg>
         <p>包裝設計</p>
-        <p>無限美味也能兼具快時尚 外送美食也可以潮翻天</p>
+        <p class="text-center">無限美味也能兼具快時尚<br>外送美食也可以潮翻天</p>
       </div>
-      <div class="icon4 col-6 col-md-3">
+      <div class="icon4 col-6 col-md-3 my-5 d-flex flex-column align-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="96"
           height="96"
           viewBox="0 0 96 96"
-          class="index__icon___2kj3t"
+          class="index__icon___2kj3t my-3"
         >
           <g fill-rule="nonzero" fill="none">
             <path
@@ -345,11 +352,11 @@
           </g>
         </svg>
         <p>衛生安全</p>
-        <p>無限廚房環境嚴格把關 最高規包材全方位保障食安</p>
+        <p class="text-center">無限廚房環境嚴格把關 <br>最高規包材全方位保障食安</p>
       </div>
     </div>
     <!-- 好評推薦 -->
-    <div class="section-title">
+    <div class="section-title d-flex flex-column align-items-center my-4">
       <h1>好評推薦</h1>
       <div class="dot-group d-flex">
         <div class="section-dot rounded-circle bg-primary"></div>
@@ -360,50 +367,67 @@
         <div class="section-dot rounded-circle bg-warning"></div>
       </div>
     </div>
-   <div class="promote-card-section">
-    <div class="card">
-      <img class="promote-card" src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210125-FA7FhFRAhhScRQCXbGsLNJJskxQzsuB80FaV8KJV.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">
-          天天分享小火鍋
-        </h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <div class="ig d-flex align-items-end">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210323-10qSyw6XsfQL9W2N5goIdfTrE2uMhlMbWvQQ0IsO.png" alt="">
-          <div class="by-name d-flex flex-column justify-content-end ml-2">
-            <p>by</p>
-            <p>寧寧</p>
+    <div class="promote-card-section">
+      <div class="card">
+        <img
+          class="promote-card"
+          src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210125-FA7FhFRAhhScRQCXbGsLNJJskxQzsuB80FaV8KJV.jpeg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">天天分享小火鍋</h5>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <div class="ig d-flex align-items-end">
+            <img
+              src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210323-10qSyw6XsfQL9W2N5goIdfTrE2uMhlMbWvQQ0IsO.png"
+              alt=""
+            />
+            <div class="by-name d-flex flex-column justify-content-end ml-2">
+              <p>by</p>
+              <p>寧寧</p>
+            </div>
+            <a href="#" class="btn btn-primary ml-auto">查看菜單</a>
           </div>
-          <a href="#" class="btn btn-primary ml-auto">查看菜單</a>
-          
         </div>
       </div>
     </div>
-   </div>
-<!-- 關於我們 -->
-   <div class="section-title">
-    <h1>關於我們</h1>
-    <div class="dot-group d-flex">
-      <div class="section-dot rounded-circle bg-primary"></div>
-      <div class="section-dot rounded-circle bg-secondary"></div>
-      <div class="section-dot rounded-circle bg-success"></div>
-      <div class="section-dot rounded-circle bg-danger"></div>
-      <div class="section-dot rounded-circle bg-info"></div>
-      <div class="section-dot rounded-circle bg-warning"></div>
+    <!-- 關於我們 -->
+    <div class="section-title d-flex flex-column align-items-center my-4">
+      <h1>關於我們</h1>
+      <div class="dot-group d-flex">
+        <div class="section-dot rounded-circle bg-primary"></div>
+        <div class="section-dot rounded-circle bg-secondary"></div>
+        <div class="section-dot rounded-circle bg-success"></div>
+        <div class="section-dot rounded-circle bg-danger"></div>
+        <div class="section-dot rounded-circle bg-info"></div>
+        <div class="section-dot rounded-circle bg-warning"></div>
+      </div>
     </div>
-  </div>
-  <!-- solgan+kitchen圖 -->
+    <!-- solgan+kitchen圖 -->
     <div class="slogan">
-      <p>無限用心。無限愛心 = 無限廚房
-        我們想顛覆你對外送食物的想像，下訂外送不用等，讓你足不出戶饗遍美食</p>
+      <p class="text-center">
+        無限用心。無限愛心 = 無限廚房 <br>
+        我們想顛覆你對外送食物的想像，下訂外送不用等，讓你足不出戶饗遍美食
+      </p>
     </div>
     <div class="us-info">
-      <img class="w-100" src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/banner__2db65213ad45097a7ca3e94097472577.jpg" alt="">
-      <p>利用科學化數據分析顧客喜愛的餐點
-        2020年無限廚房在台灣設置第1間雲端廚房，供應超過6個美食品牌的餐點，橫跨中西式。
-        2021年目標擴張10家以上雲端廚房至全台城市，供應超過12個美食品牌的餐點。利用數據化分析找出最佳Best Practice，優化出能最快市場規模化的營運模式。</p>
+      <img
+        class="w-100"
+        src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/banner__2db65213ad45097a7ca3e94097472577.jpg"
+        alt=""
+      />
+      <p class="us-info-text py-5 px-5">
+        利用科學化數據分析顧客喜愛的餐點<br>
+        2020年無限廚房在台灣設置第1間雲端廚房，供應超過6個美食品牌的餐點，橫跨中西式。<br>
+        2021年目標擴張10家以上雲端廚房至全台城市，供應超過12個美食品牌的餐點。利用數據化分析找出最佳Best<br>
+        Practice，優化出能最快市場規模化的營運模式。
+      </p>
     </div>
-    <div class="section-title">
+    <div class="section-title d-flex flex-column align-items-center">
       <h1>品牌總覽</h1>
       <div class="dot-group d-flex">
         <div class="section-dot rounded-circle bg-primary"></div>
@@ -414,47 +438,63 @@
         <div class="section-dot rounded-circle bg-warning"></div>
       </div>
     </div>
-    <div class="d-flex flex-wrap">
-      <div class="col-6 col-md-4">
-       <div class="relate-brand">
-         <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-cbFLYOTnJLxcwp7Uzh530xjaSRZCrGV5Ocdv1ptj.png" alt="">
-         <p class="text-center">True Food 精緻健康飯盒</p>
-          <p class="text-center">健康真實又好吃，可選擇紅藜飯或薑黃飯</p>
-       </div>
-      </div>
+    <div class="d-flex justify-content-between flex-wrap">
       <div class="col-6 col-md-4">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-IPE0i3bZsiKCjINLybhGFedJnMWa9sXwC2amZDJT.png" alt="">
-          <p class="text-center">甘甜南洋雞肉飯</p>
-                 <p class="text-center">一飯入魂的南洋料理餐盒</p>
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-cbFLYOTnJLxcwp7Uzh530xjaSRZCrGV5Ocdv1ptj.png"
+            alt=""
+          />
+          <p class="text-center">True Food 精緻健康飯盒</p>
+          <p class="text-center">健康真實又好吃，可選擇紅藜飯或薑黃飯</p>
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210419-ktX43FLZCuCDzheN2whAf409yUYdkhT7C6PwFQln.jpeg" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-IPE0i3bZsiKCjINLybhGFedJnMWa9sXwC2amZDJT.png"
+            alt=""
+          />
+          <p class="text-center">甘甜南洋雞肉飯</p>
+          <p class="text-center">一飯入魂的南洋料理餐盒</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="relate-brand">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210419-ktX43FLZCuCDzheN2whAf409yUYdkhT7C6PwFQln.jpeg"
+            alt=""
+          />
           <p class="text-center">小香食堂 風味便當</p>
           <p class="text-center">小香食堂 「私房調醬+獨門拌炒手藝」</p>
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-9wUMG3J7kKYzQF6ksQ25FEj7o2GUcSqSpNQE9gkt.png" alt="">
-          <p class="text-center">天天分饗小火鍋 </p>
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-9wUMG3J7kKYzQF6ksQ25FEj7o2GUcSqSpNQE9gkt.png"
+            alt=""
+          />
+          <p class="text-center">天天分饗小火鍋</p>
           <p class="text-center">下了功夫的好鍋</p>
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png"
+            alt=""
+          />
           <p class="text-center">作伙滷肉飯</p>
-          <p class="text-center">
-            適合喜歡簡單又想大口吃肉的你
-          </p>
+          <p class="text-center">適合喜歡簡單又想大口吃肉的你</p>
         </div>
       </div>
       <div class="col-6 col-md-4">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210311-cQuJRdo8Uh92BtnaADZROJPycexKftyvszzyFsQC.jpeg" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210311-cQuJRdo8Uh92BtnaADZROJPycexKftyvszzyFsQC.jpeg"
+            alt=""
+          />
           <p class="text-center">FRESH ME 健康餐盒</p>
           <p class="text-center">新鮮入口 更好的我</p>
         </div>
@@ -467,40 +507,44 @@
     <div class="promote-img-section">
       <div class="w-25">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png"
+            alt=""
+          />
           <p class="text-center">作伙滷肉飯</p>
-          <p class="text-center">
-            適合喜歡簡單又想大口吃肉的你
-          </p>
+          <p class="text-center">適合喜歡簡單又想大口吃肉的你</p>
         </div>
       </div>
       <div class="w-25">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png"
+            alt=""
+          />
           <p class="text-center">作伙滷肉飯</p>
-          <p class="text-center">
-            適合喜歡簡單又想大口吃肉的你
-          </p>
+          <p class="text-center">適合喜歡簡單又想大口吃肉的你</p>
         </div>
       </div>
     </div>
     <div class="promote-img-section">
       <div class="w-25">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png"
+            alt=""
+          />
           <p class="text-center">作伙滷肉飯</p>
-          <p class="text-center">
-            適合喜歡簡單又想大口吃肉的你
-          </p>
+          <p class="text-center">適合喜歡簡單又想大口吃肉的你</p>
         </div>
       </div>
       <div class="w-25">
         <div class="relate-brand">
-          <img src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png" alt="">
+          <img
+            src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/20210105-66zETH7f67XQWSunyF5tzGZsRh4xprpP7K1I9t9n.png"
+            alt=""
+          />
           <p class="text-center">作伙滷肉飯</p>
-          <p class="text-center">
-            適合喜歡簡單又想大口吃肉的你
-          </p>
+          <p class="text-center">適合喜歡簡單又想大口吃肉的你</p>
         </div>
       </div>
     </div>
@@ -520,32 +564,65 @@
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a
+            class="nav-link disabled"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+            >Disabled</a
+          >
         </li>
       </ul>
     </div>
     <!-- icon-facebook-ig -->
     <div class="icon-section d-flex justify-content-center my-4">
-      <div class="facebook bg-dark d-flex justify-content-center align-items-center mx-3">
+      <div
+        class="
+          facebook
+          bg-dark
+          d-flex
+          justify-content-center
+          align-items-center
+          mx-3
+        "
+      >
         <svg class="">
-          <path d="M11.525 5.9h-2.52V4.5c0-.722.06-1.177 1.117-1.177h1.336V1.097A18.82 18.82 0 009.5 1C7.56 1 6.145 2.16 6.145 4.29V5.9H4v2.8h2.145V15h2.86V8.698h2.192l.328-2.798z" fill="#FFF" fill-rule="nonzero"></path>
+          <path
+            d="M11.525 5.9h-2.52V4.5c0-.722.06-1.177 1.117-1.177h1.336V1.097A18.82 18.82 0 009.5 1C7.56 1 6.145 2.16 6.145 4.29V5.9H4v2.8h2.145V15h2.86V8.698h2.192l.328-2.798z"
+            fill="#FFF"
+            fill-rule="nonzero"
+          ></path>
         </svg>
       </div>
-      <div class="instagram bg-dark d-flex justify-content-center align-items-center mx-3">
+      <div
+        class="
+          instagram
+          bg-dark
+          d-flex
+          justify-content-center
+          align-items-center
+          mx-3
+        "
+      >
         <svg class="">
-          <path d="M4.889 1A3.888 3.888 0 001 4.889v6.222A3.888 3.888 0 004.889 15h6.222A3.888 3.888 0 0015 11.111V4.89C15 2.74 13.259 1 11.111 1H4.89zm7.778 1.556a.777.777 0 110 1.554.777.777 0 010-1.554zM8 4.11a3.89 3.89 0 11-.002 7.778A3.89 3.89 0 018 4.111zm0 1.556a2.333 2.333 0 100 4.664 2.333 2.333 0 000-4.663z" fill="#FFF" fill-rule="nonzero"></path>
+          <path
+            d="M4.889 1A3.888 3.888 0 001 4.889v6.222A3.888 3.888 0 004.889 15h6.222A3.888 3.888 0 0015 11.111V4.89C15 2.74 13.259 1 11.111 1H4.89zm7.778 1.556a.777.777 0 110 1.554.777.777 0 010-1.554zM8 4.11a3.89 3.89 0 11-.002 7.778A3.89 3.89 0 018 4.111zm0 1.556a2.333 2.333 0 100 4.664 2.333 2.333 0 000-4.663z"
+            fill="#FFF"
+            fill-rule="nonzero"
+          ></path>
         </svg>
       </div>
     </div>
     <!-- 立即點餐 -->
     <div class="button-section d-flex justify-content-center my-5">
-      <button type="button" class="btn btn-warning w-25 text-light">立即點餐</button>
+      <button type="button" class="btn btn-warning w-25 text-light">
+        立即點餐
+      </button>
     </div>
     <!-- footer -->
     <div class="footer text-center">
       <p class="index__coty-right___qAM9b">© 無限廚房 ALL RIGHTS RESERVED</p>
     </div>
-    
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
