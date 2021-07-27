@@ -18,30 +18,25 @@
            placeholder="密碼"><br>
 
     <br>
-    <div id="info"></div>
-    <input type="submit">
+    <input type="submit" value="註冊">
 </form>
 
 
 <script>
-
-    const re1 = /^[A-Z]{2}-?\d{8}$/i;
-
-    function checkForm(){
-        info.innerHTML = re1.test(uni.value) ? '符合格式' : '不符合'
-        // console.log(uni.value)
-    }
-
     function checkForm() {
         let isPass = true; // 決定要不要送出表單
 
-        
-        // 欄位裡面如果沒有任何字串，就不送出表單
-        if(! document.form1.account.value){
-            // isPass = false;
-            // console.log('帳號欄沒填');
-            alert('帳號藍莓甜');
-        } 
+        const account = document.form1.account.value;
+        if(account.length < 6){
+            isPass = false;
+            console.log('帳號名稱太短');
+        }
+
+        if(! /[a-z]/.test(account) || ! /[A-Z]/.test(account) || ! /\d/.test(account)){
+            isPass = false;
+            console.log('不符合規則：至少一個小寫英文字母、一個大寫英文字母、一個數字');
+        }
+
         if(! document.form1.password.value){
             isPass = false;
             console.log('密碼欄沒填');
