@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form name="form1" method="get" onsubmit="return checkForm();"> <!-- return false; 取消表單的送出 -->
+    <label for="account">帳號</label>
+    <input type="text" id="account" name="account"
+           placeholder="帳號"><br>
+    <label for="password">密碼</label>
+    <input type="password" id="password" name="password"
+           placeholder="密碼"><br>
+
+    <br>
+    <input type="submit">
+</form>
+
+
+<script>
+    function checkForm() {
+        let isPass = true; // 決定要不要送出表單
+
+        // 欄位裡面如果沒有任何字串，就不送出表單
+        if(! document.form1.account.value){
+            isPass = false;
+            // console.log('帳號欄沒填');
+            alert('帳號藍莓甜');
+        }
+        if(! document.form1.password.value){
+            isPass = false;
+            console.log('密碼欄沒填');
+
+        }
+
+
+        return isPass;
+    }
+
+
+
+</script>
+</body>
+</html>

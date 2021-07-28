@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!--
+1. 傳統的表單送出，頁面會刷新 refresh
+
+2. 表單的有效欄位，必須要有 name 屬性
+
+3. get 方法送，資料會顯示在網址列
+
+4. vs code 的 live server 無法測試 post 方法
+-->
+
+
+<form name="form1" method="post">
+    <label for="account">帳號</label>
+    <input type="text" id="account" name="account"
+           value="john"
+           placeholder="帳號"><br>
+    <label for="password">密碼</label>
+    <input type="password" id="password" name="password"
+           placeholder="密碼"><br>
+
+    <textarea name="ta" id="ta" cols="30" rows="3">777</textarea>
+    <br>
+    <input type="submit">
+</form>
+
+
+<script>
+    console.log( document.forms );
+    console.log( document.forms[0] );
+    console.log( document.forms[0].elements );
+    console.log( document.forms[0].elements[0] );
+
+    // document.forms[0].elements[0].value = 'Hello~';用這個設定
+
+    console.log( document.form1 );
+    console.log( document.form1.account );
+    console.log( document.form1.account.value );
+
+    // 若是要設定欄位值，不要使用屬性的方式設定
+    document.form1.account.setAttribute('value', '123');
+
+    // 密碼欄做顯示密碼的切換
+    // document.form1.password.setAttribute('type', 'text')
+    // document.form1.password.setAttribute('type', 'password')
+
+</script>
+</body>
+</html>

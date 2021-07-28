@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form name="form1" method="get" onsubmit="return checkForm();"> <!-- return false; 取消表單的送出 -->
+    <label for="account">帳號</label>
+    <input type="text" id="account" name="account"
+           placeholder="帳號"><br>
+    <label for="password">密碼</label>
+    <input type="password" id="password" name="password"
+           placeholder="密碼"><br>
+
+    <br>
+    <input type="submit" value="註冊">
+</form>
+
+
+<script>
+    function checkForm() {
+        let isPass = true; // 決定要不要送出表單
+
+        const account = document.form1.account.value;
+        if(account.length < 6){
+            isPass = false;
+            console.log('帳號名稱太短');
+        }
+
+        if(! /[a-z]/.test(account) || ! /[A-Z]/.test(account) || ! /\d/.test(account)){
+            isPass = false;
+            console.log('不符合規則：至少一個小寫英文字母、一個大寫英文字母、一個數字');
+        }
+
+        if(! document.form1.password.value){
+            isPass = false;
+            console.log('密碼欄沒填');
+
+        }
+
+
+        return isPass;
+    }
+
+
+
+</script>
+</body>
+</html>
