@@ -1,0 +1,20 @@
+CREATE TABLE 
+`mfee19`.`address_book` 
+( `sid` INT NOT NULL AUTO_INCREMENT ,
+`name` VARCHAR(255) NOT NULL ,
+`email` VARCHAR(255) NOT NULL ,
+`mobile` VARCHAR(255) NOT NULL ,
+`birthday` DATE NOT NULL ,
+`address` VARCHAR(255) NOT NULL ,
+`created_at` DATETIME NOT NULL , PRIMARY KEY (`sid`)) 
+ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+ALTER TABLE `address_book` CHANGE `email` `email` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+
+INSERT INTO 
+    `address_book` 
+    (`sid`, `name`, `email`, `mobile`, `birthday`, `address`, `created_at`) 
+    VALUES 
+    (NULL, '陳曉華3', 'shin@ggg.com', '0918123456', '2021-07-28', '台南市', '2021-07-28 05:49:05.000000'),
+    (NULL, '陳曉華4', 'shin@ggg.com', '0918123456', '2021-07-28', '台南市', '2021-07-28 05:49:05.000000'),
+    (NULL, '陳曉華5', 'shin@ggg.com', '0918123456', '2021-07-28', '台南市', '2021-07-28 05:49:05.000000'),
+    (NULL, '陳曉華6', 'shin@ggg.com', '0918123456', '2021-07-28', '台南市', '2021-07-28 05:49:05.000000')
