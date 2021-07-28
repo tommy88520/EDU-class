@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <body>
+    <button onclick="sendAjax()">send ajax</button>
 
-</head>
-<body>
-<button onclick="sendAjax()">send ajax</button>
+    <div id="info"></div>
 
-<div id="info"></div>
+    <script>
+          function sendAjax(){
+              console.log('開始');
+    //           存有 XMLHttpRequest 的状   态。从 0 到 4 发生变化。
 
-<script>
-    function sendAjax(){
-        console.log('開始');
+    //   0: 请求未初始化
+    //   1: 服务器连接已建立
+    //   2: 请求已接收
+    //   3: 请求处理中
+    //   4: 请求已完成，且响应已就绪
+              const xhr = new XMLHttpRequest;
+              xhr.onreadystatechange = function(){
+                console.log(xhr.readyState, xhr.status);
 
-        const xhr = new XMLHttpRequest;
-        xhr.onreadystatechange = function(){
-          console.log(xhr.readyState, xhr.status);
+                if(xhr.readyState===4 && xhr.status===200){
+                    info.innerText = xhr.responseText;
+                }
 
-          if(xhr.readyState===4 && xhr.status===200){
-              info.innerText = xhr.responseText;
+              };
+
+              xhr.open('GET', 'data/test01.json', false);  // async 設定為 false: 使用「同步」
+              xhr.send();
+
+              console.log('結束');
           }
-
-        };
-
-        xhr.open('GET', 'data/test01.json', false);  // async 設定為 false: 使用「同步」
-        xhr.send();
-
-        console.log('結束');
-    }
-</script>
-</body>
+    </script>
+  </body>
 </html>
