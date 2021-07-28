@@ -16,7 +16,7 @@
     function sendAjax(){
         console.log('開始');
 
-        const xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest;
         xhr.onreadystatechange = function(){
           console.log(xhr.readyState, xhr.status);
 
@@ -26,7 +26,7 @@
 
         };
 
-        xhr.open('GET', './test01.json');
+        xhr.open('GET', 'data/test01.json', false);  // async 設定為 false: 使用「同步」
         xhr.send();
 
         console.log('結束');
