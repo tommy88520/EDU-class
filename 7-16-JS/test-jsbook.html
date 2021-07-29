@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="info" id="info"></div>
+    
+    <script>
+        // window.confirm('Game is ready!');
+        const info = document.querySelector('#info');
+
+
+
+        if (window.confirm('Game is ready!')) {
+            info.innerHTML = '遊戲開始了';
+        } else {
+            info.innerHTML = '遊戲結束了';
+            
+        }
+        
+    </script>
+</body>
+</html>
