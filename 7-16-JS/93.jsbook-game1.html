@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="info" id="info"></div>
+    
+    <script>
+        const number = Math.floor(Math.random() * 6);
+        const answer = parseInt(window.prompt('請輸入1-5的數字'));
+        if (number === answer) {
+            message = '猜對了好棒棒'
+        }  else if (number > answer ) {
+            message = '在大一點'      
+        } else if (number < answer ) {
+            message = '在小一點'      
+        }  else {
+            message = '再試試';
+        }
+        window.alert(message);Ò
+        // window.confirm('Game is ready!');
+        // const info = document.querySelector('#info');
+        
+    </script>
+</body>
+</html>
