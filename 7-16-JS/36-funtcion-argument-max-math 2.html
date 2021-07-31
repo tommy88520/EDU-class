@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info">123</h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+
+    function func(n) {
+        console.log(n);
+        console.log(arguments);  // arguments 是舊的用法
+        console.log([...arguments]);
+    }
+
+    func(2,5,7);
+    console.log('------');
+
+    // ES6 的用法
+    function func2(a=10, ...m) {
+        console.log(a);
+        console.log(m);
+    }
+
+    func2(5,7,9);
+    console.log('------');
+
+    func2();
+    console.log('------');
+
+    const ar = [3, 9, 12, 5, 18];
+
+    console.log( Math.max(...ar) );
+
+</script>
+</body>
+</html>

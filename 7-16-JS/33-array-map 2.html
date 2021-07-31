@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            background-color: #F00;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h2 id="info"></h2>
+<div id="rect"></div>
+<script>
+    const info = document.querySelector('#info');
+    const rect = document.querySelector('#rect');
+
+    const ar = [2,4,6,5,7,3];
+
+    let ar2 = ar.map(function(el, index, array){
+        return el*el;
+    });
+
+    info.innerHTML +=  ar2 + '<br>';
+
+    const ar3 = [
+        {size: 40, txt: '您', bgc: '#FCC', x: 50, y:100},
+        {size: 60, txt: '好', bgc: '#6ce3ac', x: 150, y:100},
+        {size: 70, txt: '嗎', bgc: '#6ccadb', x: 100, y:200},
+    ];
+
+    let ar4 = ar3.map(function(el){
+        return `<div class="ball"
+                style="
+                top: ${el.y}px;
+                left: ${el.x}px;
+                background-color: ${el.bgc};
+                width: ${el.size}px;
+                height: ${el.size}px;
+                 ">${el.txt}</div>`;
+    });
+
+    rect.innerHTML = ar4.join('');
+
+</script>
+</body>
+</html>

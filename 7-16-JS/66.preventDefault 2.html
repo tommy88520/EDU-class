@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<a href="javascript: f()" onclick="console.log('onclick 假連結')">假連結1</a>
+<br>
+<a href="javascript: f()" onclick="return false">假連結2</a>
+<br>
+<a href="http://tw.yahoo.com" onclick="return confirm('你真的要連到雅虎嗎？')">Yahoo</a>
+<br>
+<!-- 避免預設的行為 -->
+<a href="http://www.pchome.com.tw" onclick="return false">Pchome</a>
+<br>
+<a href="http://www.pchome.com.tw" onclick="event.preventDefault()">Pchome</a>
+<br>
+
+
+<script>
+    function f(){
+        console.log('hello')
+    }
+</script>
+</body>
+</html>

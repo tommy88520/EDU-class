@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const forEach = function(f){
+        if( ! (f instanceof Function)) {
+            return;
+        }
+        for(let s in this){
+            f(s, this[s]);
+        }
+    };
+    //return返回function的值,或是結束一個function
+
+    const p1 = {name:'Bill', age:20, gender:'male'}
+    const p2 = {name:'Peter', age:22, gender:'male'}
+
+
+    forEach.call(p1, function(k,v){
+        info.innerHTML += `${k}: ${v}<br>`
+    });
+
+
+    
+
+
+</script>
+</body>
+</html>

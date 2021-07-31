@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .big-ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+            background-color: #4e869f;
+            color: white;
+            border: gray 1px solid;
+            left: 370px;
+            top: 270px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="rect">
+    <!-- 行內事件一定要寫event -->
+    <div class="big-ball">開始</div>
+    <div class="big-ball" style="left: 50px">結束
+    </div>
+
+
+</div>
+<script>
+    const [b1, b2] = document.querySelectorAll('.big-ball');
+
+    const handler = event =>{
+        console.log(event.target); //事件的來源
+        console.log(event.currentTarget);//註冊事件的那個物件
+
+    }
+    b1.addEventListener('click', handler);//註冊的事件是b1
+    b2.addEventListener('click', handler);
+
+
+
+
+</script>
+</body>
+</html>

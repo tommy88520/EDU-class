@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+<div id="info">123</div>
+<div class="rect">456</div>
+<div class="rect">789</div>
+
+    <script>
+        let info = document.querySelector('#info');
+        console.log(info);
+        info.innerHTML = '<h2>Hello~</h2>';
+
+        // HTMLCollections 先前看到的集合類型
+        console.log( document.querySelectorAll('.rect'));   // NodeList
+        console.log( document.querySelector('.rect'));      // Element
+        console.log( document.querySelectorAll('div'));     // NodeList
+    </script>
+</body>
+</html>
