@@ -12,11 +12,18 @@
       crossorigin="anonymous"
     />
     <style>
+            * {
+        font-family: Noto Sans TC,sans-serif;
+      }
       .navbar_index{
         position: fixed;
         width: 100%;
         z-index: 2;
         
+      }
+
+      .btn-color {
+        background-color: #ea6000;
       }
       .bg-color {
         background-color: rgba(5, 1, 1, 0.171);
@@ -79,6 +86,7 @@
         height: 16px;
       }
       .us-info-text {
+        width: 50%;
         line-height: 1.5rem;
       }
     </style>
@@ -142,7 +150,7 @@
             </li>
           </ul>
         </div>
-        <button type="button" class="btn btn-warning text-light">
+        <button type="button" class="btn btn-color text-light">
           立即點餐
         </button>
       </nav>
@@ -365,7 +373,7 @@
         <div class="section-dot rounded-circle bg-warning"></div>
       </div>
     </div>
-    <div class="promote-card-section">
+    <div class="promote-card-section px-3">
       <div class="card">
         <img
           class="promote-card"
@@ -394,7 +402,7 @@
       </div>
     </div>
     <!-- 關於我們 -->
-    <div class="section-title d-flex flex-column align-items-center my-4">
+    <div class="section-title d-flex flex-column align-items-center my-5">
       <h1>關於我們</h1>
       <div class="dot-group d-flex">
         <div class="section-dot rounded-circle bg-primary"></div>
@@ -412,28 +420,30 @@
         我們想顛覆你對外送食物的想像，下訂外送不用等，讓你足不出戶饗遍美食
       </p>
     </div>
-    <div class="us-info">
-      <img
-        class="w-100"
-        src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/banner__2db65213ad45097a7ca3e94097472577.jpg"
-        alt=""
-      />
-      <p class="us-info-text py-5 px-5">
-        利用科學化數據分析顧客喜愛的餐點<br>
-        2020年無限廚房在台灣設置第1間雲端廚房，供應超過6個美食品牌的餐點，橫跨中西式。<br>
-        2021年目標擴張10家以上雲端廚房至全台城市，供應超過12個美食品牌的餐點。利用數據化分析找出最佳Best<br>
-        Practice，優化出能最快市場規模化的營運模式。
-      </p>
+    <div class="px-3">
+      <div class="us-info d-flex">
+        <img
+          class="w-50"
+          src="./無限廚房｜外送美食・無限美味 - 2021-7-18 下午5-29-47/banner__2db65213ad45097a7ca3e94097472577.jpg"
+          alt=""
+        />
+        <p class="us-info-text py-5 px-5">
+          利用科學化數據分析顧客喜愛的餐點<br>
+          2020年無限廚房在台灣設置第1間雲端廚房，供應超過6個美食品牌的餐點，橫跨中西式。<br>
+          2021年目標擴張10家以上雲端廚房至全台城市，供應超過12個美食品牌的餐點。利用數據化分析找出最佳Best<br>
+          Practice，優化出能最快市場規模化的營運模式。
+        </p>
+      </div>
     </div>
-    <div class="section-title d-flex flex-column align-items-center">
-      <h1>品牌總覽</h1>
+    <div class="section-title d-flex flex-column align-items-center my-5">
+      <h1 class="">品牌總覽</h1>
       <div class="dot-group d-flex">
         <div class="section-dot rounded-circle bg-primary"></div>
         <div class="section-dot rounded-circle bg-secondary"></div>
         <div class="section-dot rounded-circle bg-success"></div>
         <div class="section-dot rounded-circle bg-danger"></div>
         <div class="section-dot rounded-circle bg-info"></div>
-        <div class="section-dot rounded-circle bg-warning"></div>
+        <div class="section-dot rounded-circle bg-warning "></div>
       </div>
     </div>
     <div class="d-flex justify-content-between flex-wrap">
