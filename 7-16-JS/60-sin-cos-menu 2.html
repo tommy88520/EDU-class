@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            background-color: #F00;
+            color: white;
+            border: gray 1px solid;
+            transition: 1s;
+        }
+        .big-ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+            background-color: #4e869f;
+            color: white;
+            border: gray 1px solid;
+            left: 370px;
+            top: 270px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="rect">
+    <div class="big-ball" onclick="toggleMenu()">開始</div>
+
+</div>
+<script>
+    const bigBall = document.querySelector('.big-ball');
+    const rect = document.querySelector('#rect');
+
+    let menuOpened = false; // 用來指示選單是不是開啟
+
+    const num = 12; // 排成圓形 (環狀)
+    const angUnit = Math.PI*2/num; // 單位角度
+
+    const data = [];
+
+    const toggleMenu = ()=>{
+        menuOpened = ! menuOpened;
+
+        if(menuOpened){
+            for(let i in data) {
+                setTimeout(() => {
+                    const b = data[i].target;
+                    b.style.left = data[i].p2.x + 'px';
+                    b.style.top = data[i].p2.y + 'px';
+                }, 50*i);
+            }
+        } else {
+            for(let i in data) {
+                setTimeout(() => {
+                    const b = data[i].target;
+                    b.style.left = data[i].p1.x + 'px';
+                    b.style.top = data[i].p1.y + 'px';
+                }, 50*(data.length-1-i));
+            }
+        }
+    };
+
+
+    for(let i=0; i<num; i++){
+        let b = document.createElement('div');
+        b.className = 'ball';
+        b.innerHTML = i+1;
+        b.id = 'b'+ (i+1);
+
+
+        // 第一個位罝的座標
+        const obj = {target: b, p1:{x: 400-20, y: 300-20}};
+        b.style.left = obj.p1.x + 'px';
+        b.style.top = obj.p1.y + 'px';
+
+        // 第二個位罝的座標
+        obj.p2 = {
+            x: 400 - 20 + 200*Math.cos(i*angUnit),
+            y: 300 - 20 + 200*Math.sin(i*angUnit),
+        }
+        data.push(obj);
+        rect.appendChild(b);
+    }
+    rect.appendChild(bigBall); // 把元素放在最後面
+
+
+
+</script>
+</body>
+</html>

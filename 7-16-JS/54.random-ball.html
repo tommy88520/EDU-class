@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #rect {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        background-color: #b0e9ff;
+      }
+      .ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: #ff2f27;
+        border-radius: 50%;
+        color: white;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid #b0e9ff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="rect">
+      <!-- <div class="ball"></div> -->
+    </div>
+
+    <script>
+      const rect = document.querySelector("#rect");
+
+      function randomRGB() {
+        let c = Math.floor(16777216*Math.random());
+        c = c.toString(16);
+        return '#' + '000000'.slice(c.length) + c;
+      }
+    //   function randomRGB() {
+    //     let c = Math.floor(16777216*Math.random());
+    //     c = c.toString(16); // 轉換為 16 進位的字串
+    //     return '#' + '000000'.slice(c.length) + c;
+    // }
+
+      for (i = 0; i < 100; i++) {
+        let size, bgc;
+        b = document.createElement("div");
+        b.className = "ball";
+        size = 10 + Math.floor(Math.random() * 31);
+        b.style.left = Math.floor(Math.random() * 800) + "px";
+        b.style.top = Math.floor(Math.random() * 600) + "px";
+        b.style.width = size + "px";
+        b.style.height = size + "px";
+        bgc = Math.floor(Math.random() * 360);
+        b.style.backgroundColor = randomRGB();
+        rect.appendChild(b);
+      }
+    </script>
+  </body>
+</html>

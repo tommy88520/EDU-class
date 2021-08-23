@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+
+    const showDate = (d)=>{
+        info.innerHTML += d.toString() + '<br>';
+        info.innerHTML += d.toLocaleString() + '<br>';
+        info.innerHTML += d.toLocaleDateString() + '<br>';
+        info.innerHTML += d.toLocaleTimeString() + '<br>';
+        info.innerHTML += d.getMonth() + '<br>';  // 拿到月份的索引
+        info.innerHTML += '------------<br>';
+    }
+
+    const now = new Date();  // 當下的時間
+    const now2 = new Date;
+
+    showDate(now);
+    showDate(new Date(2020, 5, 20)); // 年,月,日
+    showDate(new Date(2020, 5, 20, 15, 9, 20)); // 年,月,日, 時,分,秒
+    showDate(new Date('2019-07-06'));
+    showDate(new Date('2019-07-06 08:45:21'));
+
+    now2.setDate(1);
+    info.innerHTML += `當月一號是星期幾：${now2.getDay()}<br>`;
+    info.innerHTML += `${ now.getTime() }<br>`;
+
+    showDate(new Date(1626854510287));
+
+    let deltaT = new Date('2021-11-17')-now;
+    let days = deltaT/(24*60*60000)
+    info.innerHTML += `離結訓的天數：${ days }<br>`;
+</script>
+</body>
+</html>

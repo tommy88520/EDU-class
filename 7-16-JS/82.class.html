@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person {
+            //建構函式
+            constructor(name='emma', age=29){
+                this.name = name;
+                this.age = age;
+            }
+            toString() {
+                const {name, age} = this;
+                return JSON.stringify({name, age});
+            }
+        }
+        const p1 = new Person('bill', 24);
+        const p2 = new Person('davisd', 25);
+        console.log(p1.toString())
+        console.log(p2.toString())
+    </script>
+
+
+    
+</body>
+</html>

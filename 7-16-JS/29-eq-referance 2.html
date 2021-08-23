@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="btn red bold">Hello</div>
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const ar = [10, 20, 30, 40, 50];
+
+    let ar2 = ar ;
+
+    ar2[2] = 99;
+    console.log(ar2);
+    console.log(ar);
+    info.innerHTML +=  ar2 + '<br>';
+
+    // --------------------------------
+    const ar3 = [
+        {name: 'david', age: 25},
+        {name: 'flora', age: 28},
+    ];
+    const ar4 = [...ar3];
+//ar4只是拷貝外層，但內容是指到相同的第二層
+    ar4.name = 'emma';
+    info.innerHTML += JSON.stringify(ar3) + '<br>';
+
+
+
+
+    // info.innerHTML +=  ar2.splice(1, 2, 'Davis', 'emma') + '<br>';
+
+
+
+
+
+    
+ 
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

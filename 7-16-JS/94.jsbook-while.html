@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="info" id="info"></div>
+    
+    <script>
+        var enemy = 100;
+        var attack;
+        // var info = document.querySelector('#info');
+
+        while (enemy > 0) {
+            attack = Math.floor(Math.random() * 31);
+            enemy = enemy - attack;
+            // info.innerHTML = `怪物受到${attack}點傷害`;
+
+            console.log(`怪物受到${attack}點傷害`);
+        } ;
+        console.log(`贏了`);
+        
+        
+        window.alert('Game Start!');
+        
+    </script>
+</body>
+</html>

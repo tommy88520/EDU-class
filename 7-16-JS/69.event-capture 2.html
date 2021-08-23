@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: #8bd2f1;
+            border: green 1px dotted;
+        }
+        .ball {
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background-color: #f3c983;
+            color: white;
+            border: gray 1px solid;
+            left: 50px;
+            top: 50px;
+        }
+        .rect2 {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #9c6fdb;
+            border: gray 1px solid;
+            left: 130px;
+            top: 130px;
+        }
+    </style>
+</head>
+<body>
+<div class="rect">
+    <div class="ball">
+        <div class="rect2"></div>
+    </div>
+</div>
+<script>
+    const rect = document.querySelector('.rect');
+    const rect2 = document.querySelector('.rect2');
+    const ball = document.querySelector('.ball');
+
+    // event bubbling 事件浮出
+
+    // useCapture 為 true 只會觀察到 1 (capturing) 和 2 (at target) 兩個時期
+    rect.addEventListener('click', event=>{
+        console.log('rect');
+    }, true);
+
+    ball.addEventListener('click', event=>{
+        console.log('ball');
+    }, true);
+
+    rect2.addEventListener('click', event=>{
+        console.log('rect 2');
+    }, true);
+
+</script>
+</body>
+</html>

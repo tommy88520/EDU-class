@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: green 1px dotted;
+        }
+        .ball {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            text-align: center;
+            background-color: #F00;
+            color: white;
+            border: gray 1px solid;
+        }
+    </style>
+</head>
+<body>
+<div id="rect"></div>
+<script>
+    const rect = document.querySelector('#rect');
+    const balls = [];
+
+    class Ball {
+        constructor(parentEl ,options={
+            size: undefined,
+            x: undefined,
+            y: undefined,
+            bgc: undefined
+        }) {
+            this.el = document.createElement('div');
+            this.el.className = 'ball';
+            this._size = options.size*1 || (15 + Math.floor(Math.random()*16));
+            this._x = options.x*1 || Math.floor(Math.random()*800);
+            this._y = options.y*1 || Math.floor(Math.random()*600);
+            this._bgc = this.randomRGB();
+            this.display();
+            parentEl.append(this.el);
+        }
+        display(){
+            this.el.style.top = this._y + 'px';
+            this.el.style.left = this._x + 'px';
+            this.el.style.width = this._size +'px';
+            this.el.style.height = this._size +'px';
+            this.el.style.backgroundColor = this._bgc;
+        }
+        randomRGB() {
+            let c = Math.floor(16777216*Math.random());
+            c = c.toString(16); // 轉換為 16 進位的字串
+            return '#' + '000000'.slice(c.length) + c;
+        }
+
+        get x(){
+            return this._x;
+        }
+        set x(val){
+            this._x = val*1;
+            this.display();
+        }
+        get y(){
+            return this._y;
+        }
+        set y(val){
+            this._y = val*1;
+            this.display();
+        }
+
+    }
+
+
+    for(let i=0; i<100; i++){
+        let b = new Ball(rect);
+        balls.push(b);
+    }
+
+    function doAni(){
+        for(let b of balls){
+            const dx = Math.floor(Math.random()*5)-2;
+            const dy = Math.floor(Math.random()*5);
+            b.y -= dy;
+            b.x += dx;
+        }
+        setTimeout(doAni, 30);
+    }
+    doAni();
+
+
+</script>
+</body>
+</html>

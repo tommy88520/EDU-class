@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            box-sizing:border-box;
+        }
+        .container {
+            width: 960px;
+            margin: 40px auto;
+            padding: 0 15px; 
+        }
+        .row {
+            display: flex;
+            margin: 0 -15px;
+        }
+        .space-between {
+            justify-content: space-between;
+        }
+        
+        .space-center {
+            justify-content: center;
+        }
+        .align-items {
+            align-items: center;
+        }
+        .space-evenly {
+            justify-content: space-evenly;
+        }
+        .mb10 {
+            padding-bottom: 10px;
+        }
+        .vespa-com {
+            width: 22%;
+            display: flex;
+        }
+        .bg {
+            margin: 0 7%;
+        }
+        .v-left {
+            color:aquamarine;
+            text-decoration: none;
+        }
+        .v-right {
+            color:black;
+            text-decoration: none;
+        }
+        .tw-flag {
+            width: 30px;
+            height: 20px;
+            object-fit: cover;
+        }
+        .vespa-bar {
+            background-color: #63a019;
+        }
+        .PRIMAVERA-125 {
+            /* display: flex; */
+            /* width: 100%; */
+            /* padding: 0 15px;  */
+            background-color: rgba(179, 185, 185, 0.425);
+
+        }
+        .PRIMAVERA {
+            margin: 0 15px;
+            text-decoration: none;
+            color:black; 
+            font-weight: bold;
+        }
+        .background-color {
+            background-color: rgba(204, 204, 204, 0.226);
+        }
+        .home-out{
+            width: 40% ;
+            display: flex;
+            margin-top: 30px;
+        }
+        .Home,
+        .vespa-tp,
+        .vespa-PRIMAVERA {
+            margin: 0 5px;
+            color:rgba(107, 104, 104, 0.993);
+            text-decoration: none;
+        }
+        .active,
+        .no-more{
+            width: 1024;
+            justify-content: center;
+            text-align: center;
+            
+        }
+        .active {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgb(57, 198, 241);
+        }
+        .no-more {
+            font-weight: lighter;
+        }
+        .product1-o {
+        justify-content: space-between;
+
+        }
+        .product1 {
+            width: 100%;
+            height: auto ;
+        }
+        .product1 img {
+            width: 100% ;
+        }
+        .comeback {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgb(57, 198, 241);
+        }
+        .product-pro {
+            color: rgb(153, 149, 149);
+            width: 70%;
+        }
+        .product-1 {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* .product-1 img {
+            height: 500px;
+            width: 100%;
+            object-fit: cover;
+            
+        } */
+        .featrue1 {
+            height: 500px;
+            /* width: 50%; */
+            background:url(./feature01.jpg) center center / cover no-repeat;
+            background-attachment: fixed;
+        }
+        .featrue2 {
+            height: 500px;
+            width: 100%;
+            background:url(./feature02.jpg) center center/ cover;
+            background-attachment: fixed;
+        }
+        .featrue3 {
+            height: 500px;
+            width: 100%;
+            background:url(./feature03.jpg) center center /  cover no-repeat;
+            background-attachment: fixed;
+        }
+        .product-info-o {
+            display: flex;
+            flex-direction: column;
+            background-color: red;
+            width: 50%;
+            justify-content: space-around;
+            align-items:center;
+        }
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+        }
+        /* .product-info img {
+            width: 100%;
+            height: 100%;
+        } */
+        .elteam {
+            /* width: 100%; */
+            height: 500px;
+            justify-content: space-between;
+        }
+
+        .el1{
+            width: 25%;
+            overflow: hidden;
+
+        }
+        .el2{
+            width: 50%;
+            overflow: hidden;
+
+        }
+        .el3 {
+            width: 25%;
+            overflow: hidden;
+
+        }
+        .el1 img{
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            margin-left: -15px;
+            object-fit: cover;
+        }
+
+        .el2 img{
+            width: 100%;
+            height: 100%;
+            padding: 15px 0;
+            
+            /* margin-left: 15px ;
+            margin-right: px ; */
+
+            object-fit: fill;
+        }
+
+        .el3 img{
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            margin-left: 15px;
+        }
+        .thumb{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .el1:hover img{
+            transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+            transition: .5s;
+        }
+        .el2:hover img{
+            transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+            transition: .5s;
+        }
+        .thumb3:hover {
+            transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+            transition: .5s;
+        }
+        .thumb4:hover {
+            transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row background-color space-between mb10">
+            <div class="vespa-com space-center ">
+                <a href="#" class="bg v-left">VESPA.com</a>
+                <a href="#" class="bg v-right">全球據點</a>
+            </div>
+            <div class="tw-flag">
+                <img src="./Vespa Primavera - Vespa台灣官方網站 - 2021-7-10 下午9-48-50/tw-flag.jpg" alt="">
+            </div>
+        </div>
+        <div class="row vespa-bar PRIMAVERA-125 space-center mb10">
+            <a href="#" class="PRIMAVERA">PRIMAVERA 125</a>
+            <a href="#" class="PRIMAVERA">PRIMAVERA S 125</a>
+        </div>
+        <div class="row PRIMAVERA-125 space-center mb10">
+            <a href="#" class="PRIMAVERA">PRIMAVERA 125</a>
+            <a href="#" class="PRIMAVERA">PRIMAVERA S 125</a>
+        </div>
+        <div class="row background-color mb10">
+            <div class="home-out">
+                <a href="#" class="Home">
+                    <i class="fas fa-home"></i>home
+                </a>
+                <a href="#" class="vespa-tp">VESPA車款</a>
+                <a href="#" class="vespa-PRIMAVERA">VESPA-PRIMAVERA</a>
+            </div>
+        </div>
+        <div class="row active background-color">啟動PRIMAVERA 隨時享春天  </div>
+        <div class="row no-more background-color">不只騎乘工具,更是生活美學</div>
+        <div class="row">
+            <div class="product1">
+                <img src="./hero-models-gateway_Primavera.jpg" alt="">
+            </div>
+        </div>
+        <div class="row space-center mb10">
+            <div class="comeback">
+                經典車款回歸
+            </div>
+        </div>
+        <div class="row space-center mb10">
+            <span class="product-pro">超過70年來Vespa帶領年輕世代前進，Vespa Primavera就是最重要的車款之一。   於1968年推出，如今以全新前衛的外觀設計再次現身，除了保留經典之外，Vespa Primavera的車身線條擁有現代風格和時尚魅力，還具備無與倫比的操控性能，輕巧重量搭配最佳的人體工學設計，讓騎士悠閒自在地穿梭市區。   Primavera同時採用堅固無比的鋼製車體、200 mm碟煞、全新前輪懸吊和ABS安全系統，提高安全標準，並以效能優異的現代引擎和具有質感的色彩組合，在城市中輕鬆展現獨家個性。</span>
+        </div>
+        <div class="row product1-o mb10">
+            <div class="product-1">
+                <div class="featrue1"></div>
+                <div class="featrue2"></div>
+                <div class="featrue3"></div>
+            </div>
+            <div class="product-info-o">
+                <div class="product-info">
+                    <img src="./Generic.svg" alt="" class="star">
+                    <!-- <div class="star-o"></div> -->
+                    <h1>經典SCOOTER晉升2.0</h1>
+                    <h4>Primavera是最經典的義大利車款，也正因為它獨具風格，Vespa才能引領全球風潮。Primavera是格調和自由的指標，風靡世界各地，隨著網路世代崛起，更成為年輕人崇尚的風格與態度。   從過去到現在，Vespa Primavera的堅固車身、輕鬆操控，細節設計和顏色完美，符合了國際時尚潮流，並採用環保技術，成為穿梭都會的最佳選擇</h4>
+                </div>
+                <div class="product-info">
+                    <img src="./ecology.svg" alt="" class="star">
+                    <!-- <div class="star-o"></div> -->
+                    <h1>綠色新科技</h1>
+                    <h4>在品質與安全方面，Vespa Primavera採用比當前「窄版車款」更為先進的技術：全新前輪懸吊搭配安全的底部避震器、11吋輪圈、全新數位儀表板及旅程電腦、LED日行燈及尾燈 (適用於125與150cc)和各種引擎，降低油耗和排氣量，讓環保隨你前行。</h4>
+                </div>
+                <div class="product-info">
+                    <img src="./70.svg" alt="" class="star">
+                    <!-- <div class="star-o"></div> -->
+                    <h1>VESPA週年慶 限定上路</h1>
+                    <h4>從1946年Vespa第一款經典的98 cc機車於蓬泰代拉問世。適逢七十週年，Piaggio集團推出特別限定版，紀念全球最受歡迎的機車。   為了慶祝這項重大里程碑，Primavera推出獨家的Azzurro 70冰湖藍與Grigio 70淺銀灰新色。以質感深棕色座墊，搭配對比的米色邊框、前置物箱蓋上方的Vespa 70周年專屬標誌，輪框漆上不凡色調，更能彰顯個人風格。   Vespa 70周年特仕版系列，同時推出與座墊相稱的全新尾箱，能夠安裝於車尾架上，為全系列車款的標準配備。</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row elteam">
+            
+                <div class="el1">
+                    <img src="./thumb02.jpg" alt="">
+                </div>
+                <div class="el2">
+                    <img src="./thumb01.jpg" alt="">
+                </div>
+                <div class="el3">
+                    <div class="thumb">
+                        <img class="thumb3" src="./thumb03.jpg" alt="">
+                        <img class="thumb4" src="./thumb04.jpg" alt="">
+                    </div>
+                </div>
+           
+        </div>
+    </div>
+</body>
+</html>

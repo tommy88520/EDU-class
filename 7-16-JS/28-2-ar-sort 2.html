@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="btn red bold">Hello</div>
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const ar = ['Davis', 'aron', 'emma', 'flora'];
+    //數值由小到大
+    ar.sort();
+    info.innerHTML +=  ar.toString() + '<br>';
+    
+    //由大到小
+    ar.sort(function(a, b) {
+        // console.log(a, b);
+        return b > a ? 1 : -1; 
+    });
+    info.innerHTML +=  ar.toString() + '<br>';
+
+    const str = '「世界球后」戴資穎19日前往日本東京備戰奧運';
+
+    const ar2 = str.split('');
+    
+    ar2.sort();
+
+    info.innerHTML +=  ar2.toString() + '<br>';
+
+
+
+    
+ 
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

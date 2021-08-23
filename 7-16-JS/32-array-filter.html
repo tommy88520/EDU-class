@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2 id="info"></h2>
+
+<script>
+    const info = document.querySelector('#info');
+
+    const ar = [
+        {name: 'david', age: 25, gender: 'male'},
+        {name: 'flora', age: 26, gender: 'female'},
+        {name: 'carl', age: 28, gender: 'male'},
+        {name: 'emma', age: 28, gender: 'female'},
+
+    ];
+
+    const ar2= ar.filter(function(el, index, array){
+        return el.gender==='female';        
+
+    });
+    info.innerHTML += JSON.stringify(ar2) + '<br>';
+
+
+    const ar3= ar.filter(function(el){
+        return el.age < 30;        
+
+    });
+    info.innerHTML += JSON.stringify(ar3) + '<br>';
+
+    const ar4= ar.filter(function(el){
+        return el.age < 30 && el.gender==='female';        
+
+    });
+    info.innerHTML += JSON.stringify(ar4) + '<br>';
+
+</script>
+</body>
+</html>

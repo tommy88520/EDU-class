@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- a20210722-03-clock.html -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .clock {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            border: black 1px solid;
+            background-color: #c6eef5;
+        }
+        .hand {
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 300px;
+            top: 300px;
+        }
+        .sec-hand {
+            position: absolute;
+            width: 4px;
+            height: 280px;
+            border-radius: 2px;
+            background-color: #F00;
+            left: -2px;
+            top: -278px;
+        }
+        .min-hand {
+            position: absolute;
+            width: 10px;
+            height: 220px;
+            border-radius: 5px;
+            background-color: #2360e2;
+            left: -5px;
+            top: -215px;
+        }
+        .hr-hand {
+            position: absolute;
+            width: 14px;
+            height: 170px;
+            border-radius: 7px;
+            background-color: #1e6d15;
+            left: -7px;
+            top: -163px;
+        }
+        .ticks {
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: 300px;
+            top: 300px;
+        }
+        .tick-c {
+            position: absolute;
+        }
+        .tick {
+            position: absolute;
+            width: 1px;
+            height: 10px;
+            background-color: black;
+            left: 0px;
+            top: -300px;
+        }
+    </style>
+    
+    
+</head>
+<body>
+
+<div class="clock">
+    <div class="ticks"></div>
+
+    <div class="hand hrHand">
+        <div class="hr-hand"></div>
+    </div>
+    <div class="hand minHand">
+        <div class="min-hand"></div>
+    </div>
+    <div class="hand secHand">
+        <div class="sec-hand"></div>
+    </div>
+</div>
+
+<script>
+    const ticks = document.querySelector('.ticks');
+    const secHand = document.querySelector('.secHand');
+    const minHand = document.querySelector('.minHand');
+    const hrHand = document.querySelector('.hrHand');
+
+    // template function
+    const tick_tpl = o => {
+        let width=1, height=10, left=0;
+        if(o.big){
+            width = 4;
+            height = 15;
+            left = -2;
+        }
+
+        return `<div class="tick-c" style="transform: rotate(${o.deg}deg);">
+            <div class="tick" style=" width: ${width}px; height: ${height}px; left: ${left}px;"></div>
+        </div>`;
+    }
+
+    let str = '';
+    for(let i=0; i<60; i++){
+        str += tick_tpl({
+            deg: i*6,
+            big: i%5===0,
+        });
+    }
+    ticks.innerHTML = str;
+
+    const runClock = ()=>{
+        const now = new Date;
+        secHand.style.transform = `rotate(${ now.getSeconds()*6 }deg)`;
+        minHand.style.transform = `rotate(${ now.getMinutes()*6 }deg)`;
+        hrHand.style.transform = `rotate(${ now.getHours()*30 + now.getMinutes()*.5 }deg)`;
+        setTimeout(runClock, 1000);
+    }
+
+    runClock();
+</script>
+</body>
+</html>

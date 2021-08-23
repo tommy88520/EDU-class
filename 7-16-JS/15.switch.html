@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="score" type="number" min="0" max="100" />
+    <!-- 以下這個onclick是行內事件處理器，不要寫太長內容 -->
+    <button
+      onclick="
+    myclick()
+    "
+    >
+      查看
+    </button>
+    <input type="number" oninput="myonput()" />
+    <div id="info"></div>
+
+    <script>
+      const score = document.querySelector("#score");
+      const info = document.querySelector("#info");
+
+      function myclick() {
+        let s = score.value * 1;
+        s = Math.floor(s/10); //取整數值 小數不要
+
+
+        switch(s) {
+          case 10:
+          case 9:
+            info.innerHTML = "A";
+            break;
+          case 8:
+            info.innerHTML = "B";
+            break;
+          case 7:
+            info.innerHTML = "C";
+            break;
+          case 6:
+            info.innerHTML = "D";
+            break;
+          default:
+            info.innerHTML = "F";
+
+        }
+      }
+    </script>
+  </body>
+</html>

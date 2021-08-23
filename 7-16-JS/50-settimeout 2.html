@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="stopInterval()">停止 interval </button>
+<h2 id="info"><br></h2>
+
+<script>
+    const info = document.querySelector('#info');
+    let n = 0;
+    //let i = 0 會和在裡面用var宣告一樣都是一堆10
+//用let宣告每次回圈裡的i都是各自獨立的
+    for(let i=0 ; i<10; i ++){
+        setTimeout(()=>{
+            info.innerHTML += i + '<br>'; //用var必須把i改成n
+        }, 500 *i )
+    }
+</script>
+</body>
+</html>
