@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse event</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #afa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">box</div>
+
+    <script src="./jQ/jquery-3.6.0.js"></script>
+
+    <script>
+        $('.box').click(function () {
+            console.log('clicked');
+        })
+
+        $('.box').dblclick(function () {
+            console.log('dblclicked');
+        })
+        $('.box').contextmenu(function () {
+            console.log('contextmenu');
+        })
+        $('.box').mousedown(function () {
+            console.log('mousedown');
+        })
+        $('.box').mouseup(function () {
+            console.log('mouseup');
+        })
+
+        $('.box').hover(function () {
+            console.log('hover enter');
+        }, function () {
+            console.log('hover leave');
+        })
+
+        $('.box').mouseenter(function () {
+            console.log('mouseenter');
+        })
+        $('.box').mouseleave(function () {
+            console.log('mouseleave');
+        })
+    </script>
+</body>
+
+</html>

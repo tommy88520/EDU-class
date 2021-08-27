@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    .box1{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(151, 206, 22);
+    }
+    .box2{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(40, 65, 65);
+    }
+    .box3{
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+    }
+    .box4{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(59, 15, 179);
+    }
+    .box5{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(16, 27, 27);
+    }
+    .box6{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(128, 24, 138);
+    }
+    .box7{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(255, 196, 0);
+    }
+    .box8{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(214, 171, 91);
+    }
+    .box9{
+        height: 200px;
+        width: 200px;
+        background-color: rgba(43, 46, 99, 0.486);
+    }
+    .box10{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(17, 148, 23);
+    }
+    .box11{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(36, 82, 82);
+    }
+    .box12{
+        height: 200px;
+        width: 200px;
+        background-color: rgb(70, 18, 47);
+    }
+
+</style>
+<body>
+
+    <div class="wrap d-flex flex-wrap">
+        <div class="box box1 col-3">box1</div>
+        <div class="box box2 col-3">box2</div>
+        <div class="box box3 col-3">box3</div>
+        <div class="box box4 col-3">box4</div>
+        <div class="box box5 col-3">box5</div>
+        <div class="box box6 col-3">box6</div>
+        <div class="box box7 col-3">box7</div>
+        <div class="box box8 col-3">box8</div>
+        <div class="box box9 col-3">box9</div>
+        <div class="box box10 col-3">box10</div>
+        <div class="box box11 col-3">box11</div>
+        <div class="box box12 col-3">box12</div>
+
+    </div>
+    
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+
+$('.box').click(function() {
+    console.log($(this), 'say hi');
+    $(this).css('background-color', 'blue' )
+})
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <form action="">
+          <div class="form-row">
+            <div class="form-group">
+              <select name="city" id="city" class="form-control">
+                <option value="0">基隆</option>
+                <option value="1">台北</option>
+                <option value="2">新北</option>
+              </select>
+            </div>
+            <div class="form-group mx-3">
+              <select name="district" id="district" class="form-control">
+                <option value="0">七堵區</option>
+                <option value="1">暖暖</option>
+                <option value="2">好棒棒區</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      let districtArray = [
+        ["七堵", "中正", "暖暖"],
+        ["中正", "大安", "信義"],
+        ["蘆洲", "三重", "新店"],
+      ];
+
+      // $('#city').change(function () {
+      //   // console.log($(this).val());
+
+      //   const test = districtArray[$(this).val()];
+
+      //   if($(this).val() === '0'){
+      //     $('#district option').each(function() {
+      //     $(this).text(`${test[$(this).val()]}區`)
+      //   })
+      //   } else if($(this).val() === '1'){
+      //     $('#district option').each(function() {
+      //     $(this).text(`${test[$(this).val()]}區`)
+      //     })
+      //   } else {
+      //     $('#district option').each(function() {
+      //     $(this).text(`${test[$(this).val()]}區`)
+      //     })
+      //   }
+
+
+      // })
+      // 以下老師的方法
+      $('#city').change(function () {
+            console.log('#city changed');
+
+            // console.log('cityVal:', $(this).val());
+
+            // 1.我要知道使用者選擇的是哪個城市?  => 我也可以拿到正確的區域名稱陣列
+            const distNameArray = districtArray[$(this).val()];
+            // console.log('distNameArray', distNameArray);
+
+            // 2.能不能用迴圈的方式修改區域 OPTION 的名稱(可以先寫死一樣的名字)
+
+            // $('#district option').each(function (index, element) {
+            //     console.log('text:', $(this).text());
+            //     console.log('index:', index);
+            //     console.log('element:', element);
+            //     $(this).text('中正區');
+            // })
+            // 3.那我能不能在迴圈裏面，想辦法取得不同的城市個別的區域名稱，依次改動。
+
+
+            $('#district option').each(function (index, element) {
+                // console.log('text:', $(this).text());
+                // console.log('option val:', $(this).val());
+                // console.log('index:', index);
+                // console.log('element:', element);
+                // console.log('distNameArray', distNameArray[index]);
+
+                $(this).text(`${distNameArray[index]}區`);
+            })
+
+        })
+     
+    </script>
+  </body>
+</html>

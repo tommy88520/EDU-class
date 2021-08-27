@@ -34,7 +34,8 @@
 
     <script src="./jQ/jquery-3.6.0.js"></script>
     <script>
-        $('.item-002').parents().css('border', '1px solid red');
+        // $('.item-002').parentsUntil('.item-2').css('border', '1px solid red');
+        $('.item-002').closest('.level-1').find('.item-1').css('border', '1px solid red');
     </script>
 
 </body>

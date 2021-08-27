@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<style>
+    .box{
+        height: 200px;
+        width: 200px;
+        background-color: aqua;
+    }
+</style>
+<body>
+    
+        <div>
+            <label for="username">username</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="email">email</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">password</label>
+            <input type="text" id="password" name="password">
+        </div>
+        <input type="submit" value="註冊" id="submit" name="submit">
+    
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+
+$('#submit').click(function() {
+    // console.log($(this).next(), 'say hi');
+    // $(this).css('background-color', 'orange' )
+    
+    console.log('input value=' , $('#username').val('好棒棒'))
+    console.log('input value=' , $('#email').val('12w321@gmail'))
+    console.log('input value=' , $('#password').val('buifwbofwen'))
+
+
+})
+
+
+
+</script>
+
+</body>
+</html>
