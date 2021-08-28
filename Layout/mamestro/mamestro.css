@@ -1,3 +1,6 @@
+html {
+    font-family: sans-serif
+}
 .index_header {
     height: 150px;
 }
@@ -10,6 +13,8 @@
 .navbar_info {
     width: 100%;
     position: relative;
+    font-size: 1.3rem;
+    color: #C59C5C;
 }
 .nav_lineup_header {
     position: absolute;
@@ -77,4 +82,20 @@
     width: 30%;
     height: 200px;
     object-fit: contain;
+}
+.sec_reason_img {
+    height: 282px;
+}
+.number1 {
+    font-size: 2rem;
+    width: 10%;
+    text-align: center
+}
+.txt_set{
+    font-size: 14px;
+    margin: 0;
+}
+.original_brand{
+    width: 204px;
+    height: 32px;
 }
