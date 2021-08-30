@@ -10,6 +10,8 @@
         body {
             margin: 0;
             height: 300vh;
+            transition:.5s;
+            overflow-x: hidden;
         }
 
         .wrap {
@@ -24,48 +26,72 @@
             background-color: pink;
             height: 50px;
             /* width: 30%; */
+            transition:.5s;
         }
+        .box1{
+            height: 50px;
+
+        }
+        .img_wrap {
+            position: absolute;
+            top: 700px;
+            left: 40%;
+            transform: translateX(700px);
+        }
+        
     </style>
 </head>
 
 <body>
     <div class="wrap">
         <div class="box"></div>
+        <div class="box1"></div>
+    </div>
+
+    <div  class="img_wrap">
+        <img src="./imgs/airplane.png" alt="" style="width: 300px ; height: 300px;">
     </div>
 
     <script src="./jQ/jquery-3.6.0.js"></script>
 
     <script>
         console.log('body height', $('body').height());
-        
+        let bodyHeight = $('body').height();
 
         $(window).scroll(function () {
-            // console.log('scrollTop:', $(this).scrollLeft());
+            changeBoxwidth();
+        });
 
+        $(window).resize(function(){
+            changeBoxwidth();
+        });
 
-            const scrollpercentage = (($(this).scrollTop()/$('body').height()) *100 + 34 );
+        function changeBoxwidth() {
+            const windowHeight = $(window).height();
+
+            const scrollpercentage = (($(this).scrollTop() /(bodyHeight-windowHeight))*100);
 
             // console.log('閱讀百分比是', (scrollpercentage))
             // $('.box').css('width', `34%`)
 
 
             $('.box').css('width', `${scrollpercentage}%`);
-            $('.box').text(`您已經閱讀${scrollpercentage}%`);
-            
+            $('.box1').text(`您已經閱讀${scrollpercentage}%`);
 
 
+            if(scrollpercentage > 20){
+                $('body').css('background-color', 'orange');
+                $('.img_wrap').css('transform', 'translateX(0px)').css('opacity', '1');
+            } else {
+                $('body').css('background-color', 'transparent');
+                $('.img_wrap').css('transform', 'translateX(720px)').css('opacity', '0');
 
+            }
+        }
 
+        
 
-            // 1.使用者滾到哪裡?數字是多少?
-
-            // 2.網頁內容全部長度多長?
-
-
-            // 3.計算出目前閱讀的百分比 (誰是分母?誰是分子?)
-
-            // 4.最後，把這個百分比，給 .box 的 CSS 寬度。
-        })
+        
 
     </script>
 </body>
