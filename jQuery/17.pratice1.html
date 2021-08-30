@@ -25,7 +25,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="checkbox" type="checkbox" onclick="Password_Function2()">
+                        <input class="checkbox" type="checkbox">
                     </td>
                     <td>td1</td>
                     <td>td2</td>
@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="checkbox" type="checkbox" onclick="Password_Function2()">
+                        <input class="checkbox" type="checkbox">
                     </td>
                     <td>td1</td>
                     <td>td2</td>
@@ -45,7 +45,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="checkbox" type="checkbox" onclick="Password_Function2()">
+                        <input class="checkbox" type="checkbox" >
                     </td>
                     <td>td1</td>
                     <td>td2</td>
@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <input class="checkbox" type="checkbox" onclick="Password_Function2()">
+                        <input class="checkbox" type="checkbox">
                     </td>
                     <td>td1</td>
                     <td>td2</td>
@@ -75,7 +75,7 @@
 <script>
 
 // $('td:odd').css('background','blue').css('color','red');
- $('td').css('background','white').css('color','red');
+//  $('td').css('background','white').css('color','red');
 
 
 
@@ -102,29 +102,33 @@
 //     .css('background-color', 'blue' )
 // })
 
-    $('.checkbox').click(function(){
-        if(! $(this).attr('checked') === false) {
+    $('input[type="checkbox"]').click(function(){
+        if( $(this).prop('checked')) {
             $(this)
-            .closer('tr')
+            .closest('tr')
             .find('td')
             .css('background-color', 'blue')
         } else {
             $(this)
-            .closer('tr')
+            .closest('tr')
             .find('td')
             .css('background-color', 'white')
         }
     })
 
+    // $('input[type="checkbox"]').click(function () {
+    //         // console.log('hi', $(this).attr('checked'));
+    //         // console.log('hi', $(this).prop('checked'));
 
-// function Password_Function() {
-//         var x = document.querySelector("#password_o");
-//         if (x.type === "password") {
-//             x.type = "text";
-//         } else {
-//             x.type = "password";
-//         }
-//     }
+    //         if ($(this).prop('checked')) {
+    //             $(this).parent().parent().css('background', 'lightblue');
+    //         }
+    //         else {
+    //             $(this).parent().parent().css('background', 'transparent');
+    //         }
+
+    //     });
+
 
 </script>
 

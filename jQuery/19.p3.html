@@ -14,15 +14,19 @@
         border-radius: 50%;
         margin: 0 5px;
         overflow: hidden;
+        height: 100%;
+        border: 3px solid transparent;
         
     }
 
     .box img{
         object-fit: cover;
+        /* border: 3px solid transparent; */
+
     }
 </style>
 <body>
-    <div class="wrap d-flex">
+    <div class="wrap d-flex w-100 justify-content-between mt-5">
         <div class="box">
             <img src="./imgs/person1.jpg" alt="">
         </div>
@@ -42,7 +46,7 @@
 
 $('.box').click(function() {
     // console.log($(this).next(), 'say hi');
-    $(this).css('border', '10px solid orange' ).siblings().css("border", "transparent");
+    $(this).css('border', '3px solid orange' ).siblings().css("border", "3px solid transparent");
     // console.log('input value=' , $('#test1').val('好棒棒'))
 })
 
