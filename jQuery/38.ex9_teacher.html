@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .fontS {
+            font-size: .8rem;
+        }
+
+        .fontM {
+            font-size: 1rem;
+        }
+
+        .fontL {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="btn-group">
+                <button class="btn-s btn btn-info ">S</button>
+                <button class="btn-m btn btn-info active">M</button>
+                <button class="btn-l btn btn-info ">L</button>
+            </div>
+        </div>
+        <div class="row">
+            <h2>jQuery</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae eius, corporis animi earum,
+                voluptate accusamus soluta error quaerat natus ullam cupiditate! Eveniet, sapiente atque? Nesciunt
+                accusamus quo possimus placeat. Atque?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae eius, corporis animi earum,
+                voluptate accusamus soluta error quaerat natus ullam cupiditate! Eveniet, sapiente atque? Nesciunt
+                accusamus quo possimus placeat. Atque?</p>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // $('.btn-s').on('click', function () {
+        //     console.log('btn-s');
+        //     $('p').removeClass().addClass('fontS');
+        //     $(this).addClass('active').siblings().removeClass('active');
+        // });
+        // $('.btn-m').on('click', function () {
+        //     console.log('btn-m');
+        //     $('p').removeClass().addClass('fontM');
+        //     $(this).addClass('active').siblings().removeClass('active');
+        // });
+        // $('.btn-l').on('click', function () {
+        //     console.log('btn-l');
+        //     $('p').removeClass().addClass('fontL');
+        //     $(this).addClass('active').siblings().removeClass('active');
+        // });
+
+        $('.btn').on('click', function () {
+            // console.log('hi S', $(this).is(':contains("S")'));
+            // console.log('hi M', $(this).is(':contains("M")'));
+            // console.log('hi L', $(this).is(':contains("L")'));
+
+            if ($(this).is(':contains("S")')) {
+                $('p').removeClass().addClass('fontS');
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+
+            if ($(this).is(':contains("M")')) {
+                $('p').removeClass().addClass('fontM');
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+
+            if ($(this).is(':contains("L")')) {
+                $('p').removeClass().addClass('fontL');
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+
+        });
+    </script>
+</body>
+
+</html>

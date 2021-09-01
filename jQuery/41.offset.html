@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ex10</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      body {
+        margin: 8px;
+      }
+      .height {
+        height: 1200px;
+        width: 100%;
+        background-color: #ccc;
+      }
+      .box {
+        height: 100px;
+        width: 100px;
+        background-color: rgb(26, 240, 122);
+        transition: 1s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="height"></div>
+    <div class="box"></div>
+    <div class="height"></div>
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      console.log("box set=", $(".box").offset());
+      console.log("box set=", $(".box").offset().left);
+      console.log("box set=", $(".box").offset().top);
+
+    //   $(".box").offset({
+    //     top: "50",
+    //     left: "100", //數值為字串 left: '100',
+    //   });
+    $(window).scroll(function(){
+        console.log('scrolltop=', $(window).scrollTop());
+        console.log('windowHeight=', $(window).height());
+        //用box的位置-windowheight
+        if($(window).scrollTop() > ($('.box').offset().top - $(window).height() + 300)) {
+            $('.box').css('background-color', 'orange')
+        } else {
+            $('.box').css('background-color', 'rgb(26, 240, 122)')
+        }
+    })
+    
+    </script>
+  </body>
+</html>
