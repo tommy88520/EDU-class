@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+      }
+
+      .wrap {
+        max-width: 800px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      ul.train {
+        display: flex;
+        width: 4000px;
+        list-style: none;
+        padding: 0;
+        transform: translateX(-800px);
+        transition: all 0.5s;
+      }
+
+      li.car img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slider-dots {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .slider-dots li {
+        width: 40px;
+        height: 10px;
+        border: 2px solid #fff;
+        margin: 0 4px;
+      }
+      .arrow {
+        height: 100%;
+        width: 100%;
+        font-size: 3rem;
+        color: #fff;
+        position: absolute;
+        bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .arrow i {
+        height: 50%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <ul class="train">
+        <li class="car"><img src="./imgs/slide1.jpg" alt="" /></li>
+        <li class="car"><img src="./imgs/slide2.jpg" alt="" /></li>
+        <li class="car"><img src="./imgs/slide3.jpg" alt="" /></li>
+        <li class="car"><img src="./imgs/slide4.jpg" alt="" /></li>
+        <li class="car"><img src="./imgs/slide5.jpg" alt="" /></li>
+      </ul>
+
+      <ul class="slider-dots">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="arrow">
+        <i class="arrow_l fas fa-chevron-left"></i>
+        <i class="arrow_r fas fa-chevron-right"></i>
+      </div>
+    </div>
+  </body>
+
+  <script src="./jQ/jquery-3.6.0.js"></script>
+  <script>
+    let page = 0;
+
+    let myIntervalID = "";
+
+    function startInterval() {
+      myIntervalID = setInterval(() => {
+        page++;
+
+        if (page > 4) {
+          page = 0;
+        }
+        // console.log('hi', page);
+        //   $('ul.train').css('transform', `translateX(${page * -800}px)`);
+
+        //   $('.slider-dots li').eq(page).css('background', '#fff').siblings().css('background', 'transparent');
+        changepage();
+      }, 3000);
+    }
+    //
+    function changepage() {
+      const moveX = page * -800;
+      $("ul.train").css("transform", `translateX(${moveX}px)`);
+      $(".slider-dots li")
+        .eq(page)
+        .css("background", "#fff")
+        .siblings()
+        .css("background", "transparent");
+    }
+
+    $(".slider-dots li").hover(
+      function () {
+        clearInterval(myIntervalID);
+
+        console.log("index:", $(this).index());
+        page = $(this).index();
+
+        console.log("move x:", $(this).index() * -800);
+        changepage();
+      },
+      function () {
+          startInterval();
+      }
+    );
+
+    //   startInterval();
+    $(".slider-dots li").eq(0).css("background", "#fff");
+
+    $(".arrow_l").on("click", function () {
+      page++;
+
+      if (page > 4) {
+        page = 0;
+      }
+      changepage();
+    });
+
+    $(".arrow_r").on("click", function () {
+      page++;
+
+      if (page > 4) {
+        page = 0;
+      }
+      changepage();
+    });
+  </script>
+</html>

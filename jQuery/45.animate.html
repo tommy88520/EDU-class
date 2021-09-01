@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css"
+      integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ=="
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <h1 class="animate__animated">An animated element</h1>
+
+    <button data-animation-name="animate__fadeInDownBig">fadeInDownBig</button>
+    <button data-animation-name="animate__bounce">bounce</button>
+    <button data-animation-name="animate__flash">flash</button>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("button").on("click", function () {
+        const test = $(this).data("animation-name");
+
+        $("h1")
+          .addClass(test)
+          .one("animationend", function () {
+            $(this).removeClass(test);
+          });
+
+        // let animate = "animate__" + $(this).text();
+        // $(".box")
+        //   .addClass(animate)
+        //   .one("animationend", function () {
+        //     $(this).removeClass(animate);
+        //   });
+      });
+    </script>
+  </body>
+</html>
