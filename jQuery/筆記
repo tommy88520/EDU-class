@@ -15,3 +15,9 @@ Q:如何優化使用體驗？
         // CONST 不能重複賦值
 
         // 解構賦值 ES6, react 很常用
+
+Q: 冒泡機制：
+可以用event.stopPropagation阻止
+
+target 和 currentTarget的不同
+被動觸發的對象會不同，如果使用this會有問題
