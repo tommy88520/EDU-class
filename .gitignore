@@ -1,3 +1,8 @@
 .DS_Store
 
 .vscode
+*.yml
+node.js/node_modules
+node.js/package.json
+node.js/package-lock.json
+node.js/data 2.json
