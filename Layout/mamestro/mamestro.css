@@ -99,3 +99,8 @@ html {
     width: 204px;
     height: 32px;
 }
+.lineup_img img{
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
