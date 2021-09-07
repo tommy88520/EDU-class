@@ -4,9 +4,11 @@ const express = require('express');
 
 const app = express();
 app.set('view engine', 'ejs')
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 //app.set('views', __dirname + '/../views'); 如果資料夾不是views要給路徑
 app.use(express.static('public'))
-app.use('/jquery', express.static('/node_modules/jquery/dist'));
+app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
 
 
@@ -31,6 +33,14 @@ app.get('/try-qs', (req, res)=>{
 
 });
 
+
+//middleware
+app.post('/try-post', (req, res)=>{
+    // const sales = require('./data/sales');
+    res.json(req.body);
+
+});
+
 //只能透過get方法訪問路由
 
 // 路由結束
@@ -39,7 +49,8 @@ app.use((req, res) => {
 });
 
 let port = process.env.PORT;
+const node_env = process.env.NODE_ENV ||'development';
 app.listen(port, ()=>{
-    console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+    console.log(node_env);
     console.log(`啟動: ${port}`, new Date());
 });
