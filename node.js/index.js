@@ -2,12 +2,35 @@ require('dotenv').config();
 const express = require('express');
 
 
-// 路由定義開始
 const app = express();
+app.set('view engine', 'ejs')
+//app.set('views', __dirname + '/../views'); 如果資料夾不是views要給路徑
 app.use(express.static('public'))
+app.use('/jquery', express.static('/node_modules/jquery/dist'));
+app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
+
+
+// 路由定義開始
 app.get('/', (req, res) => {
-    res.send(`<h2>Hello</h2>`)
+    // res.send(`<h2>Hello</h2>`)
+    res.render('home', {name:'Tommy'})
 });
+
+app.get('/json-sales', (req, res)=>{
+    const sales = require('./data/sales');
+
+    // console.log(sales);
+    // res.json(sales);
+    res.render('json-sales', {sales});
+});
+
+app.get('/try-qs', (req, res)=>{
+    // const sales = require('./data/sales');
+
+    res.json(req.query);
+
+});
+
 //只能透過get方法訪問路由
 
 // 路由結束

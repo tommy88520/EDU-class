@@ -3,4 +3,4 @@
 .vscode
 node_modules
 node.js/package-lock.json
-node.js/package.json
+node.js/public/fontawesome
