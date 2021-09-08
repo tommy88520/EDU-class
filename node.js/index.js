@@ -1,5 +1,11 @@
 require('dotenv').config();
 const express = require('express');
+const multer = require('multer');
+const fs = require('fs').promises;
+const upload = multer({dest: 'tmp_uploads/'});
+// const uploadimg = require('modules/upload-images.js');
+const uploadImg = require('./modules/upload-images');
+
 
 
 const app = express();
@@ -54,6 +60,29 @@ app.post('/try-post-form', (req, res)=>{
 });
 app.get('/pending', (req, res)=>{
 
+});
+
+app.post('/try-upload', upload.single('avatar'), async (req, res)=>{
+    if(req.file && req.file.mimetype=== 'image/png' ){
+        try {
+            await fs.rename(req.file.path, __dirname + '/public/img/' + req.file.originalname);
+            return res.json({success: true, filename: req.file.originalname});
+        } catch(ex){
+            return res.json({success: false, error: '無法存檔', ex});
+        }
+
+    } else {
+        await fs.unlink(req.file.path);  // 刪除暫存檔
+        res.json({success: false, error: '格式不對'});
+    }
+});
+
+app.post('/try-upload2', uploadImg.single('avatar'), async (req, res)=>{
+    res.json(req.file);
+});
+
+app.post('/try-upload3', uploadImg.array('photo',12), async (req, res)=>{
+    res.json(req.files);
 });
 //只能透過get方法訪問路由
 
