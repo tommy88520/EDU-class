@@ -52,6 +52,9 @@ app.post('/try-post-form', (req, res)=>{
     res.render('try-post-form', req.body);
 
 });
+app.get('/pending', (req, res)=>{
+
+});
 //只能透過get方法訪問路由
 
 // 路由結束
