@@ -104,3 +104,9 @@ html {
     width: 100%;
     object-fit: cover;
 }
+.lineup_text img{
+    width: 80%;
+    height: 24px;
+    object-fit: contain;
+
+}
