@@ -84,7 +84,32 @@ app.post('/try-upload2', uploadImg.single('avatar'), async (req, res)=>{
 app.post('/try-upload3', uploadImg.array('photo',12), async (req, res)=>{
     res.json(req.files);
 });
+
+// params 傳統的做法比較會用
+app.get('/my-params1/:action/:id', (req, res)=>{
+    res.json(req.params);
+});
+//下面這個更有彈性
+app.get('/my-params2/:action?/:(\\d+)?', (req, res)=>{ res.json(req.params);
+    //第一個\是為了跳脫
+    res.json(req.params);
+});
+app.get(/^\/09\d{2}\-?\d{3}\-?\d{3}$/i, (req, res)=>{ res.json(req.params);
+    //第一個\是為了跳脫
+    let u = req.url.split('?')[0];
+    u = u.slice(3); 
+    u = u.split('-').join('');
+
+    res.json({
+        url: req.url,
+        mobile: u
+    });
+});
+const admin2Router = require('./routes/admin2'); 
+app.use(admin2Router);
+
 //只能透過get方法訪問路由
+
 
 // 路由結束
 app.use((req, res) => {
