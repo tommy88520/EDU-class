@@ -4,7 +4,7 @@ const express = require('express');
 
 const app = express();
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false})); //設定true使用qs套件 ，false使用queryString
 app.use(express.json());
 //app.set('views', __dirname + '/../views'); 如果資料夾不是views要給路徑
 app.use(express.static('public'))
@@ -41,6 +41,17 @@ app.post('/try-post', (req, res)=>{
 
 });
 
+app.get('/try-post-form', (req, res)=>{
+    // const sales = require('./data/sales');
+    res.render('try-post-form');
+
+});
+
+app.post('/try-post-form', (req, res)=>{
+    // const sales = require('./data/sales');
+    res.render('try-post-form', req.body);
+
+});
 //只能透過get方法訪問路由
 
 // 路由結束
