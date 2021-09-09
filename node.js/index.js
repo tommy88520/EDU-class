@@ -1,26 +1,45 @@
 require('dotenv').config();
+
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs').promises;
+const session = require('express-session');
+const moment = require('moment-timezone');
 const upload = multer({dest: 'tmp_uploads/'});
 // const uploadimg = require('modules/upload-images.js');
 const uploadImg = require('./modules/upload-images');
+const db = require('./modules/connect-mysql');
 
 
 
 const app = express();
 app.set('view engine', 'ejs')
+
+app.use(session({
+    name: 'MysessioniD',
+    // 新用戶沒有使用到 session 物件時不會建立 session 和發送 cookie 
+    saveUninitialized: false,
+    resave: false, // 沒變更內容是否強制回存
+    secret: 'vlmflmkvmlfmvmfl',
+    cookie: {
+    maxAge: 1200000, // 20分鐘，單位毫秒
+    } 
+}));
 app.use(express.urlencoded({extended: false})); //設定true使用qs套件 ，false使用queryString
 app.use(express.json());
 //app.set('views', __dirname + '/../views'); 如果資料夾不是views要給路徑
 app.use(express.static('public'))
 app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
-
+app.use((req, res, next)=>{
+    res.locals.title = 'Jake的網站';
+    next()
+})
 
 // 路由定義開始
 app.get('/', (req, res) => {
     // res.send(`<h2>Hello</h2>`)
+    res.locals.title = '首頁 - ' + res.locals.title;
     res.render('home', {name:'Tommy'})
 });
 
@@ -108,9 +127,34 @@ app.get(/^\/09\d{2}\-?\d{3}\-?\d{3}$/i, (req, res)=>{ res.json(req.params);
 const admin2Router = require('./routes/admin2'); 
 app.use(admin2Router);
 
+app.use('/admin3',require('./routes/admin3'));
+
+app.get('/try-session', (req, res)=>{
+req.session.my_var = req.session.my_var || 0; // 預設為 0 
+req.session.my_var++;
+res.json({
+my_var: req.session.my_var,
+session: req.session });
+});
+
+app.get('/try-moment', (req, res)=>{
+    const fm = 'YYYY-MM-DD HH:mm:ss';
+
+    res.json({
+        m1: moment().format(fm),
+        m2: moment().tz('Europe/Berlin').format(fm),
+        m3: moment().tz('Asia/Tokyo').format(fm),
+    });
+});
+
+app.get('/try-db', async (req, res)=>{
+    const [r] = await db.query("SELECT * FROM address_book WHERE `name` LIKE ?", ['%新%']);
+
+    res.json(r);
+
+});
+
 //只能透過get方法訪問路由
-
-
 // 路由結束
 app.use((req, res) => {
     res.status(404).send(`<h2>888888</h2>`)
