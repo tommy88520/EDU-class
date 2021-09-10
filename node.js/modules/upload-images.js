@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
   },
 });
 const fileFilter = (req, file, cb) => {
-  cb(null, !!extMap[file.mimetype]);
+  cb(null, !!extMap[file.mimetype]); //!!就是轉換成布林值
 };
 const upload = multer({ storage, fileFilter });
 module.exports = upload;

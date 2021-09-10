@@ -4,12 +4,13 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs').promises;
 const session = require('express-session');
+const MysqlStore = require('express-mysql-session')(session);
 const moment = require('moment-timezone');
 const upload = multer({dest: 'tmp_uploads/'});
 // const uploadimg = require('modules/upload-images.js');
 const uploadImg = require('./modules/upload-images');
 const db = require('./modules/connect-mysql');
-
+const sessionStore = new MysqlStore({}, db);
 
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(session({
     saveUninitialized: false,
     resave: false, // 沒變更內容是否強制回存
     secret: 'vlmflmkvmlfmvmfl',
+    store: sessionStore,
     cookie: {
     maxAge: 1200000, // 20分鐘，單位毫秒
     } 
@@ -31,8 +33,16 @@ app.use(express.json());
 app.use(express.static('public'))
 app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
+//自訂的middleware
 app.use((req, res, next)=>{
     res.locals.title = 'Jake的網站';
+    res.locals.pageName = '';
+
+
+
+     // 設定 template 的 helper functions
+     res.locals.dateToDateString = d => moment(d).format('YYYY-MM-DD');
+     res.locals.dateToDateTimeString = d => moment(d).format('YYYY-MM-DD HH:mm:ss');
     next()
 })
 
@@ -45,10 +55,9 @@ app.get('/', (req, res) => {
 
 app.get('/json-sales', (req, res)=>{
     const sales = require('./data/sales');
-
-    // console.log(sales);
-    // res.json(sales);
     res.render('json-sales', {sales});
+
+    res.locals.pageName = 'json-sales';
 });
 
 app.get('/try-qs', (req, res)=>{
@@ -128,8 +137,9 @@ const admin2Router = require('./routes/admin2');
 app.use(admin2Router);
 
 app.use('/admin3',require('./routes/admin3'));
+app.use('/address-book', require('./routes/address-book'));
 
-app.get('/try-session', (req, res)=>{
+app.get('/try-sess', (req, res)=>{
 req.session.my_var = req.session.my_var || 0; // 預設為 0 
 req.session.my_var++;
 res.json({
