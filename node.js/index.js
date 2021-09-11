@@ -38,12 +38,10 @@ app.use((req, res, next)=>{
     res.locals.title = 'Jake的網站';
     res.locals.pageName = '';
 
-
-
      // 設定 template 的 helper functions
      res.locals.dateToDateString = d => moment(d).format('YYYY-MM-DD');
      res.locals.dateToDateTimeString = d => moment(d).format('YYYY-MM-DD HH:mm:ss');
-    next()
+    next();
 })
 
 // 路由定義開始
@@ -54,10 +52,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/json-sales', (req, res)=>{
+    res.locals.pageName = 'json-sales';
     const sales = require('./data/sales');
     res.render('json-sales', {sales});
 
-    res.locals.pageName = 'json-sales';
 });
 
 app.get('/try-qs', (req, res)=>{
