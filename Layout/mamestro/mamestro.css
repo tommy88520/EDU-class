@@ -110,3 +110,19 @@ html {
     object-fit: contain;
 
 }
+.blog_menu {
+    width: 30%;
+    list-style: none;
+}
+.section_news_blog {
+    padding: 0 150px;
+}
+.blog_card_section {
+    padding: 0 200px;
+}
+.snav-privacy {
+    list-style: none;
+}
+.footer {
+    /* padding: 0 200px; */
+}
