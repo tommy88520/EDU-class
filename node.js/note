@@ -1,0 +1,42 @@
+
+
+傳統的作法
+    列表:
+    /products?page=12
+    /products/list/12
+
+    新增:
+    /products/add
+    /products/create
+
+    修改:
+    /products/17/edit
+    /products/17/update
+    /products/edit/17
+    /products/update/17
+
+RESTful API 作法：
+    列表:
+        GET /product
+
+    讀取單筆:
+        GET /product/:id
+
+    新增:
+        POST /product
+
+    修改:
+        PUT /product/:id
+
+    刪除:
+        DELETE /product/:id
+
+---------------------- 以 address-book 為例說明
+/api/address-book
+    GET: 取得列表資料
+    POST: 新增資料
+
+/api/address-book/:sid
+    GET: 取得單項資料
+    PUT: 修改單項資料
+    DELETE: 刪除單項資料

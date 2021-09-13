@@ -37,6 +37,8 @@ app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
 app.use((req, res, next)=>{
     res.locals.title = 'Jake的網站';
     res.locals.pageName = '';
+    res.locals.keyword = '';
+
 
      // 設定 template 的 helper functions
      res.locals.dateToDateString = d => moment(d).format('YYYY-MM-DD');
