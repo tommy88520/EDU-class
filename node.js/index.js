@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs').promises;
+const cors = require('cors');
 const session = require('express-session');
 const MysqlStore = require('express-mysql-session')(session);
 const moment = require('moment-timezone');
@@ -27,6 +28,16 @@ app.use(session({
     maxAge: 1200000, // 20分鐘，單位毫秒
     } 
 }));
+
+const corsOptions = {
+    credentials: true,
+    origin: (origin, cb)=>{
+        console.log(`origin: ${origin}`);
+        cb(null, true);
+    }
+};
+app.use( cors(corsOptions) );
+
 app.use(express.urlencoded({extended: false})); //設定true使用qs套件 ，false使用queryString
 app.use(express.json());
 //app.set('views', __dirname + '/../views'); 如果資料夾不是views要給路徑
