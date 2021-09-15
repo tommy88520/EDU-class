@@ -37,6 +37,7 @@ const corsOptions = {
     }
 };
 app.use( cors(corsOptions) );
+//  app.use( cors() );
 
 app.use(express.urlencoded({extended: false})); //設定true使用qs套件 ，false使用queryString
 app.use(express.json());
@@ -146,6 +147,7 @@ app.get(/^\/09\d{2}\-?\d{3}\-?\d{3}$/i, (req, res)=>{ res.json(req.params);
 });
 const admin2Router = require('./routes/admin2'); 
 app.use(admin2Router);
+app.use('/',require('./routes/login'));
 
 app.use('/admin3',require('./routes/admin3'));
 app.use('/address-book', require('./routes/address-book'));
