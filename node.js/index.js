@@ -5,6 +5,7 @@ const multer = require('multer');
 const fs = require('fs').promises;
 const cors = require('cors');
 const session = require('express-session');
+const jwt = require('jsonwebtoken');
 const MysqlStore = require('express-mysql-session')(session);
 const moment = require('moment-timezone');
 const upload = multer({dest: 'tmp_uploads/'});
@@ -32,7 +33,7 @@ app.use(session({
 const corsOptions = {
     credentials: true,
     origin: (origin, cb)=>{
-        console.log(`origin: ${origin}`);
+        // console.log(`origin: ${origin}`);
         cb(null, true);
     }
 };
@@ -45,8 +46,9 @@ app.use(express.json());
 app.use(express.static('public'))
 app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
+
 //自訂的middleware
-app.use((req, res, next)=>{
+app.use(async (req, res, next)=>{
     res.locals.title = 'Jake的網站';
     res.locals.pageName = '';
     res.locals.keyword = '';
@@ -55,6 +57,21 @@ app.use((req, res, next)=>{
      // 設定 template 的 helper functions
      res.locals.dateToDateString = d => moment(d).format('YYYY-MM-DD');
      res.locals.dateToDateTimeString = d => moment(d).format('YYYY-MM-DD HH:mm:ss');
+
+     res.locals.session = req.session; //把session資料傳到ejs
+
+     // jwt 驗證
+    req.myAuth = null;  // 自訂的屬性 myAuth
+    const auth = req.get('Authorization');
+    if(auth && auth.indexOf('Bearer ')===0){
+        const token = auth.slice(7);
+        try{
+            req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
+            console.log('req.myAuth:', req.myAuth);
+        } catch(ex) {
+            console.log('jwt-ex:', ex);
+        }
+    }
     next();
 })
 
@@ -147,7 +164,7 @@ app.get(/^\/09\d{2}\-?\d{3}\-?\d{3}$/i, (req, res)=>{ res.json(req.params);
 });
 const admin2Router = require('./routes/admin2'); 
 app.use(admin2Router);
-app.use('/',require('./routes/login'));
+app.use('/', require('./routes/login'));
 
 app.use('/admin3',require('./routes/admin3'));
 app.use('/address-book', require('./routes/address-book'));

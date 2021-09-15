@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs');
 (async ()=>{
 
     const t1 = Date.now();
-
-    const hash2 = await bcrypt.hash('shinder', 8);
+    const salt = await bcrypt.genSalt(12);
+    const hash2 = await bcrypt.hash('shinder', salt);
     console.log(`hash2: ${hash2}`);
     const t2 = Date.now();
     console.log(t2-t1);

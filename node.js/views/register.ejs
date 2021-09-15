@@ -6,18 +6,22 @@
         <div class="col-md-6">
             <div class="card" >
                 <div class="card-body">
-                    <h5 class="card-title">新增通訊錄</h5>
+                    <h5 class="card-title">會員註冊</h5>
 
                     <form name="form1" onsubmit="checkForm(); return false;">
                         <div class="mb-3">
-                            <label for="name" class="form-label">name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">email</label>
-                            <input type="email" class="form-control" id="email" name="email">
+                            <label for="email" class="form-label">email (作為帳號使用)</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="password" class="form-label">密碼</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nickname" class="form-label">暱稱</label>
+                            <input type="text" class="form-control" id="nickname" name="nickname" required>
+                        </div>
                         <div class="mb-3">
                             <label for="mobile" class="form-label">mobile</label>
                             <input type="text" class="form-control" id="mobile" name="mobile">
@@ -26,12 +30,8 @@
                             <label for="birthday" class="form-label">birthday</label>
                             <input type="date" class="form-control" id="birthday" name="birthday">
                         </div>
-                        <div class="mb-3">
-                            <label for="address" class="form-label">address</label>
-                            <textarea class="form-control" name="address" id="address"
-                                      cols="30" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">新增</button>
+
+                        <button type="submit" class="btn btn-primary">註冊</button>
                     </form>
                 </div>
             </div>
@@ -41,23 +41,41 @@
 </div>
 <%- include('parts/scripts') %>
 <script>
-    
+    const email = document.querySelector('#email');
+
+    const keyHandler = event=>{
+        // console.log(event.type, event.key);
+        // TODO: 檢查格式是否符合 email 格式
+
+        const usp = new URLSearchParams();
+        usp.set('email', email.value.toLowerCase().trim());
+
+        fetch('/account-check?' + usp).then(r=>r.json()).then(data=>{
+            if(data.used){
+                // email 已被使用
+                email.style.border = '2px solid red';
+            } else {
+                email.style.border = '1px solid #CCCCCC';
+            }
+        });
+
+    }
+
+    // email.addEventListener('keydown', keyHandler);
+    // email.addEventListener('keyup', keyHandler);
+    // email.addEventListener('keypress', keyHandler);
+    email.addEventListener('input', keyHandler);
+
+
+
     function checkForm(){
+
         // TODO: 欄位檢查
+
+
         const fd = new FormData(document.form1);
-        // const usp = new URLSearchParams(new FormData(document.form1));
-        // console.log(usp.toString());
 
-        // 以 multipart/form-data 的格式送出
-        // fetch('', {
-        //     method: 'POST',
-        //     body: fd
-        // }).then(r=>r.json()).then(obj=>{
-        //     console.log(obj);
-        // });
-
-         // 以 urlencoded 的格式送出
-         fetch('', {
+        fetch('', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -66,17 +84,14 @@
         }).then(r=>r.json()).then(obj=>{
             console.log(JSON.stringify(obj, null, 4));
             if(obj.success){
-                location.href ='/address-book/list';
+                alert('註冊成功');
+                location.href ='/login';
             } else {
-                alert('資料無法新增成功\n' + (obj.error || ''));
+                alert('註冊失敗\n' + (obj.error || ''));
             }
         });
-        /*
-        這邊用jQ寫
-        $.post('', $(document.form1).serialize(), function(data){
-            // console.log(data
-            }, 'json');
-         */
+
+
     }
 
 
