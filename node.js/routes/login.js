@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const Joi = require('joi');
 
 const db = require('./../modules/connect-mysql');
 const upload = require('./../modules/upload-images');
@@ -17,6 +18,8 @@ router.get('/login', (req, res)=>{
 router.post('/login', async (req, res)=>{
 
     // TODO: 欄位檢查
+
+
 
     const [rs] = await db.query("SELECT * FROM members WHERE `email`=?", [req.body.email]);
 
@@ -47,38 +50,106 @@ router.post('/register', async (req, res)=>{
     };
     // TODO: 欄位檢查
 
-    const hash = await bcrypt.hash(req.body.password, 10);
+    const schema = Joi.object({
+        email: Joi.string()
+        .trim()
+        .email()
+        .required(),
+        password: Joi.string()
+        .min(5)
+        .max(10)
+        .required()
+    });
+    // const validation = await schema.validate(req.body);
+    // res.send(validation);
 
-    const sql = "INSERT INTO `members`" +
-        "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
-        " VALUES (?, ?, ?, ?, ?, NOW())";
+    
 
-    let result;
-    try {
-        [result] = await db.query(sql, [
-            req.body.email.toLowerCase().trim(),
-            hash,
-            req.body.mobile,
-            req.body.birthday,
-            req.body.nickname,
-        ]);
-        if(result.affectedRows===1){
-            output.success = true;
-        } else {
-            output.error = '無法新增會員';
+
+    const validation = await schema.validate(req.body);
+    if(!validation.error){
+        const hash = await bcrypt.hash(req.body.password, 10);
+
+        const sql = "INSERT INTO `members`" +
+            "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
+            " VALUES (?, ?, ?, ?, ?, NOW())";
+
+        let result;
+        try {
+            [result] = await db.query(sql, [
+                req.body.email.toLowerCase().trim(),
+                hash,
+                req.body.mobile,
+                req.body.birthday,
+                req.body.nickname,
+            ]);
+            if(result.affectedRows===1){
+                output.success = true;
+            } else {
+                output.error = '無法新增會員';
+            }
+        } catch(ex){
+            console.log(ex);
+            output.error = 'Email 已被使用過';
         }
-    } catch(ex){
-        console.log(ex);
-        output.error = 'Email 已被使用過';
+
+        res.json(output);
+    } else {
+        res.json({success: false, error: validation.error.message});
+        // throw new Error(validation.error.message)
+        // res.send(validation);
     }
 
-    res.json(output);
+    // const validation = await schema.validate(req.body,(err,result)=>{
+    //     if(err) {
+    //      res.json({success: false, error: `${validation.error.message}`})
+    //      return;
+    //     }
+    // })
+    // res.send(validation);
+
+    
+    
+
+
+    // const hash = await bcrypt.hash(req.body.password, 10);
+
+    // const sql = "INSERT INTO `members`" +
+    //     "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
+    //     " VALUES (?, ?, ?, ?, ?, NOW())";
+
+    // let result;
+    // try {
+    //     [result] = await db.query(sql, [
+    //         req.body.email.toLowerCase().trim(),
+    //         hash,
+    //         req.body.mobile,
+    //         req.body.birthday,
+    //         req.body.nickname,
+    //     ]);
+    //     if(result.affectedRows===1){
+    //         output.success = true;
+    //     } else {
+    //         output.error = '無法新增會員';
+    //     }
+    // } catch(ex){
+    //     console.log(ex);
+    //     output.error = 'Email 已被使用過';
+    // }
+
+    // res.json(output);
 });
 
 router.get('/account-check', async (req, res)=>{
     const sql = "SELECT 1 FROM members WHERE `email`=?";
     const [rs] = await db.query(sql, [req.query.email ]);
     res.json({used: !!rs.length });
+    // if(re.lengh){
+    //     res.json({uesd:true});
+    // } else {
+    //     res.json({uesd:false});
+
+    // } 跟上面一樣，但可讀性較佳
 });
 
 // 登出
