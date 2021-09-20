@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <form onsubmit="checkForm(); return false;">
+      <input type="text" id="subject" name="subject" placeholder="Subject" /> <br />
+      <input type="email" id="email" name="email" placeholder="Receiver email" /> <br />
+      <textarea name="text" id="text" name="text" cols="30" rows="10"></textarea> <br />
+      <button type="submit" class="btn btn-primary">註冊</button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $("form").on("submit", e => {
+        // e.preventDefault();
+
+        const email = $("#email")
+          .val()
+          .trim();
+        const subject = $("#subject")
+          .val()
+          .trim();
+        const text = $("#text")
+          .val()
+          .trim();
+
+        const data = {
+          email,
+          subject,
+          text
+        };
+
+        $.post("/email3", data)
+          .then(() => {
+            window.location.href = "/email3/sent";
+          })
+          .catch(() => {
+            window.location.href = "/error";
+          });
+      });
+    </script>
+  </body>
+</html>

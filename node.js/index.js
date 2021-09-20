@@ -13,6 +13,8 @@ const upload = multer({dest: 'tmp_uploads/'});
 const uploadImg = require('./modules/upload-images');
 const db = require('./modules/connect-mysql');
 const sessionStore = new MysqlStore({}, db);
+const path = require('path');
+
 
 
 const app = express();
@@ -166,6 +168,10 @@ const admin2Router = require('./routes/admin2');
 app.use(admin2Router);
 app.use('/', require('./routes/login'));
 app.use('/', require('./routes/email'));
+// app.use('/', require('./routes/email2'));
+app.use('/', require('./routes/email3'));
+
+
 
 
 app.use('/admin3',require('./routes/admin3'));
