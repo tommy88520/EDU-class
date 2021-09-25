@@ -28,10 +28,16 @@
         {name: 'flora', age: 28},
     ];
     let ar4 = JSON.parse(JSON.stringify(ar3)); //深層複製
-
+    
     ar4[1].name = 'emma';
+
+    let ar5 = JSON.parse(JSON.stringify(ar3));
+
+    ar5[1].name = 'jake';
+
     info.innerHTML += 'ar3:' + JSON.stringify(ar3) + '<br>';
     info.innerHTML += 'ar4:' + JSON.stringify(ar4) + '<br>';
+    info.innerHTML += 'ar5' + JSON.stringify(ar5) + '<br>';
 
 
 

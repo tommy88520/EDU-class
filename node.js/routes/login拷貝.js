@@ -33,12 +33,21 @@ router.post("/login", async (req, res) => {
   }
 
   const success = await bcrypt.compare(req.body.password, rs[0].password);
-    if(success){
-        const {id, email, nickname} = rs[0];
-        req.session.member = {id, email, nickname};
-    }
+  if (success) {
+    const { id, email, nickname } = rs[0];
+    // req.session.member = {id, email, nickname};
+    output.success = true;
+    output.member = { id, email, nickname };
+    output.token = await jwt.sign(
+      { id, email, nickname },
+      process.env.JWT_SECRET
+    );
+    const myAuth = req.myAuth
+    // req.myAuth.member = { id, email, nickname };
+    // console.log(myAuth);
+  }
 
-    res.json({success});
+  res.json({success});
   // res.json(output);
   // res.json(req.myAuth);
 

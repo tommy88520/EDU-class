@@ -61,20 +61,23 @@ app.use(async (req, res, next)=>{
      res.locals.dateToDateTimeString = d => moment(d).format('YYYY-MM-DD HH:mm:ss');
 
      res.locals.session = req.session; //把session資料傳到ejs
-
+     
      // jwt 驗證
-    req.myAuth = null;  // 自訂的屬性 myAuth
-    const auth = req.get('Authorization');
-    if(auth && auth.indexOf('Bearer ')===0){
-        const token = auth.slice(7);
-        try{
-            req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
-            console.log('req.myAuth:', req.myAuth);
-        } catch(ex) {
-            console.log('jwt-ex:', ex);
+     req.myAuth = null;  // 自訂的屬性 myAuth
+     const auth = req.get('Authorization');
+     if(auth && auth.indexOf('Bearer ')===0){
+         const token = auth.slice(7);
+         try{
+             req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
+             console.log('req.myAuth:', req.myAuth);
+            //  console.log(myAuth);
+
+            } catch(ex) {
+                console.log('jwt-ex:', ex);
+            }
         }
-    }
-    next();
+        // res.locals.myAuth = req.myAuth;
+        next();
 })
 
 // 路由定義開始
