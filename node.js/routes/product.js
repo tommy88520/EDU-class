@@ -7,7 +7,7 @@ const router = express.Router();
 
 // 列表
 router.get('/', async (req, res) => {
-    res.json(await Product.findAll());
+    res.json(await Product.findAll(req.body));
 });
 
 // 讀取單筆
