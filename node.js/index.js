@@ -35,10 +35,11 @@ app.use(session({
 const corsOptions = {
     credentials: true,
     origin: (origin, cb)=>{
-        // console.log(`origin: ${origin}`);
+        console.log(`origin: ${origin}`);
         cb(null, true);
     }
 };
+// 建立cors白名單
 app.use( cors(corsOptions) );
 //  app.use( cors() );
 
@@ -61,22 +62,20 @@ app.use(async (req, res, next)=>{
      res.locals.dateToDateTimeString = d => moment(d).format('YYYY-MM-DD HH:mm:ss');
 
      res.locals.session = req.session; //把session資料傳到ejs
+    //  console.log(req.locals.session)
      
-     // jwt 驗證
+    //  jwt 驗證
      req.myAuth = null;  // 自訂的屬性 myAuth
-     const auth = req.get('Authorization');
-     if(auth && auth.indexOf('Bearer ')===0){
-         const token = auth.slice(7);
-         try{
-             req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
-             console.log('req.myAuth:', req.myAuth);
-            //  console.log(myAuth);
-
-            } catch(ex) {
-                console.log('jwt-ex:', ex);
-            }
+    const auth = req.get('Authorization');
+    if(auth && auth.indexOf('Bearer ')===0){
+        const token = auth.slice(7);
+        try{
+            req.myAuth = await jwt.verify(token, process.env.JWT_SECRET);
+            console.log('req.myAuth:', req.myAuth);
+        } catch(ex) {
+            console.log('jwt-ex:', ex);
         }
-        // res.locals.myAuth = req.myAuth;
+    }
         next();
 })
 
@@ -85,6 +84,7 @@ app.get('/', (req, res) => {
     // res.send(`<h2>Hello</h2>`)
     res.locals.title = '首頁 - ' + res.locals.title;
     res.render('home', {name:'Tommy'})
+    //前面是ejs檔案的名稱
 });
 
 app.get('/json-sales', (req, res)=>{
@@ -128,6 +128,7 @@ app.post('/try-upload', upload.single('avatar'), async (req, res)=>{
     if(req.file && req.file.mimetype=== 'image/png' ){
         try {
             await fs.rename(req.file.path, __dirname + '/public/img/' + req.file.originalname);
+            // 搬到資料夾
             return res.json({success: true, filename: req.file.originalname});
         } catch(ex){
             return res.json({success: false, error: '無法存檔', ex});
@@ -141,6 +142,7 @@ app.post('/try-upload', upload.single('avatar'), async (req, res)=>{
 
 app.post('/try-upload2', uploadImg.single('avatar'), async (req, res)=>{
     res.json(req.file);
+    console.log(req.file);
 });
 
 app.post('/try-upload3', uploadImg.array('photo',12), async (req, res)=>{
@@ -179,6 +181,7 @@ app.use('/', require('./routes/email3'));
 
 app.use('/admin3',require('./routes/admin3'));
 app.use('/address-book', require('./routes/address-book'));
+app.use('/product', require('./routes/product'));
 
 app.get('/try-sess', (req, res)=>{
 req.session.my_var = req.session.my_var || 0; // 預設為 0 
@@ -203,6 +206,21 @@ app.get('/try-db', async (req, res)=>{
 
     res.json(r);
 
+});
+app.post('/test_avatar', uploadImg.none(), async (req, res)=>{
+    const sql = "INSERT INTO `test_avatar`(`avatar`, `name`) VALUES (?, ?)";
+    const [r] = await db.query(sql, [req.body.avatar, req.body.name]);
+    res.json(r);
+});
+app.get('/test_avatar/:id', async (req, res)=>{
+    const sql = "SELECT * FROM `test_avatar` WHERE sid=?";
+    const [r] = await db.query(sql, [req.params.id]);
+    res.json(r[0] ? r[0] : {});
+});
+app.put('/test_avatar/:id', uploadImg.none(), async (req, res)=>{
+    const sql = "UPDATE `test_avatar` SET ? WHERE sid=?";
+    const [r] = await db.query(sql, [req.body, req.params.id]);
+    res.json(r);
 });
 
 //只能透過get方法訪問路由

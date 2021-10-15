@@ -36,6 +36,7 @@ router.post("/login", async (req, res) => {
     if(success){
         const {id, email, nickname} = rs[0];
         req.session.member = {id, email, nickname};
+        // console.log('session.member',session.member)
     }
 
     res.json({success});
@@ -66,42 +67,42 @@ router.post("/register", async (req, res) => {
     birthday: Joi.date(),
   });
   const validation = await schema.validate(req.body);
-//   res.send(validation);
+  res.send(validation);
 
 //   const validation = await schema.validate(req.body);
-  if (!validation.error) {
-    const hash = await bcrypt.hash(req.body.password, 10);
+  // if (!validation.error) {
+  //   const hash = await bcrypt.hash(req.body.password, 10);
 
-    const sql =
-      "INSERT INTO `members`" +
-      "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
-      " VALUES (?, ?, ?, ?, ?, NOW())";
+  //   const sql =
+  //     "INSERT INTO `members`" +
+  //     "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
+  //     " VALUES (?, ?, ?, ?, ?, NOW())";
 
-    let result;
-    try {
-      [result] = await db.query(sql, [
-        req.body.email.toLowerCase().trim(),
-        hash,
-        req.body.mobile,
-        req.body.birthday,
-        req.body.nickname,
-      ]);
-      if (result.affectedRows === 1) {
-        output.success = true;
-      } else {
-        output.error = "無法新增會員";
-      }
-    } catch (ex) {
-      console.log(ex);
-      output.error = "Email 已被使用過";
-    }
+  //   let result;
+  //   try {
+  //     [result] = await db.query(sql, [
+  //       req.body.email.toLowerCase().trim(),
+  //       hash,
+  //       req.body.mobile,
+  //       req.body.birthday,
+  //       req.body.nickname,
+  //     ]);
+  //     if (result.affectedRows === 1) {
+  //       output.success = true;
+  //     } else {
+  //       output.error = "無法新增會員";
+  //     }
+  //   } catch (ex) {
+  //     console.log(ex);
+  //     output.error = "Email 已被使用過";
+  //   }
 
-    res.json(output);
-  } else {
-    res.json({ success: false, error: validation.error.message });
-    // throw new Error(validation.error.message)
-    // res.send(validation);
-  }
+  //   res.json(output);
+  // } else {
+  //   res.json({ success: false, error: validation.error.message });
+  //   // throw new Error(validation.error.message)
+  //   // res.send(validation);
+  // }
 
   // const validation = await schema.validate(req.body,(err,result)=>{
   //     if(err) {
@@ -111,32 +112,32 @@ router.post("/register", async (req, res) => {
   // })
   // res.send(validation);
 
-  // const hash = await bcrypt.hash(req.body.password, 10);
+  const hash = await bcrypt.hash(req.body.password, 10);
 
-  // const sql = "INSERT INTO `members`" +
-  //     "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
-  //     " VALUES (?, ?, ?, ?, ?, NOW())";
+  const sql = "INSERT INTO `members`" +
+      "(`email`, `password`, `mobile`, `birthday`, `nickname`, `create_at`)" +
+      " VALUES (?, ?, ?, ?, ?, NOW())";
 
-  // let result;
-  // try {
-  //     [result] = await db.query(sql, [
-  //         req.body.email.toLowerCase().trim(),
-  //         hash,
-  //         req.body.mobile,
-  //         req.body.birthday,
-  //         req.body.nickname,
-  //     ]);
-  //     if(result.affectedRows===1){
-  //         output.success = true;
-  //     } else {
-  //         output.error = '無法新增會員';
-  //     }
-  // } catch(ex){
-  //     console.log(ex);
-  //     output.error = 'Email 已被使用過';
-  // }
+  let result;
+  try {
+      [result] = await db.query(sql, [
+          req.body.email.toLowerCase().trim(),
+          hash,
+          req.body.mobile,
+          req.body.birthday,
+          req.body.nickname,
+      ]);
+      if(result.affectedRows===1){
+          output.success = true;
+      } else {
+          output.error = '無法新增會員';
+      }
+  } catch(ex){
+      console.log(ex);
+      output.error = 'Email 已被使用過';
+  }
 
-  // res.json(output);
+  res.json(output);
 });
 
 router.get("/account-check", async (req, res) => {
@@ -152,11 +153,9 @@ router.get("/account-check", async (req, res) => {
 });
 
 // 登出
-router.get("/logout", (req, res) => {
-  // delete req.session.member;
-  delete req.myAuth.member;
-
-  res.redirect("/");
+router.get('/logout', (req, res)=>{
+  delete req.session.member;
+  res.redirect('/');
 });
 
 router.post("/login-jwt", async (req, res) => {

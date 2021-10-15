@@ -40,3 +40,5 @@ RESTful API 作法：
     GET: 取得單項資料
     PUT: 修改單項資料
     DELETE: 刪除單項資料
+
+    CREATE VIEW `VIEW_PRODUCT_CATE` AS SELECT p.sid, p.`bookname`, c.`name` `cate_name` FROM `products` p JOIN `categories` c ON p.`category_sid`=c.sid;

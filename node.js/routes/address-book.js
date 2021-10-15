@@ -25,8 +25,11 @@ async function getListData(req, res){
 
     const t_sql = `SELECT COUNT(1) totalRows FROM address_book ${where}`;
     const [[{totalRows}]] = await db.query(t_sql);
+    // 陣列裡的第一個項目，裡面的totalRaws
     output.totalRows = totalRows;
+    // 總比數
     output.totalPages = Math.ceil(totalRows/perPage);
+    // 總頁數
     output.perPage = perPage;
     output.rows = [];
     output.page = page;
@@ -54,6 +57,7 @@ router.getListData = getListData; // 將 function 掛在 router 物件上做匯�
 
 router.get('/', (req, res)=>{
     res.render('address-book/main');
+    // ejs的檔案路徑
 });
 
 router.get('/list', async (req, res)=>{
