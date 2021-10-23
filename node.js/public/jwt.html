@@ -61,13 +61,13 @@
 
 
         const fd = new FormData(document.form1);
+        // const test = localStorage.getItem(member)
 
         fetch('/login-jwt', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: new URLSearchParams(fd).toString(),
         }).then(r=>r.json()).then(obj=>{
             console.log(JSON.stringify(obj, null, 4));
             if(obj.success){

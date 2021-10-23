@@ -14,6 +14,8 @@ const bcrypt = require('bcryptjs');
 
     const hash3 = await bcrypt.hash('shinder', salt);
     console.log(`hash3: ${hash3}`);
+    const hash4 = await bcrypt.hash('002', 10);
+    console.log(`hash4: ${hash4}`);
 
 
     console.log(await bcrypt.compare('shinder', hash2));

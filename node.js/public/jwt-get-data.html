@@ -37,18 +37,28 @@
 function getData(){
     // 取得 token
     const token = localStorage.getItem('token');
+    // const test = localStorage.getItem('member')
+    // test={
+    //     id:12,
+    //     name:'mkmlm'
+    // }
+
     if(!token){
         alert('沒有 token');
         return;
     }
 
     fetch('/get-data-jwt', {
-        method: 'GET',
+        method: 'get',
         headers: {
+            // 'Content-Type': 'application/json',
             Authorization: 'Bearer ' + token  // Bearer 一定後面要加空格
-        }
+            
+        }, 
+        body: JSON.stringify(test)
     }).then(r=>r.json()).then(obj=>{
         ta.value = JSON.stringify(obj, null, 4);
+        // console.log('1')
     });
 }
 
