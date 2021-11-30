@@ -18,20 +18,10 @@
 
       // quiz 1: 9, 8, 7, 6, ... 0
       for (let i = 9; i >= 0; i--) {
-        info.innerHTML += `<p>${i}</p>`;
+        let a = 1 * i;
+        info.innerHTML += `<span>${a}</span>`;
       }
-      info.innerHTML += "<br>";
-
-      for (let i = 0; i < 10; i++) {
-        info.innerHTML += `<p>${10 - i}</p>`;
-      }
-      info.innerHTML += "<br>";
-
-      // quiz 2: 33, 35, 37, ... 71
-      for (let i = 33; i <= 71; i += 2) {
-        info.innerHTML += `<p>${i}</p>`;
-      }
-      info.innerHTML += "<br>";
+      // info.innerHTML += "<br>";
     </script>
   </body>
 </html>

@@ -7,12 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="showbox"></div>
-
-    <script >
-      (function IIFE() {
-        console.log("立即函式", IIFE);
-      })();
+    <script>
+      let str = "";
+      for (let i = 1; i <= 9; i++) {
+        for (let j = 1; j <= i; j++) {
+          // str = str + "";
+          str += `${j} x ${i} = ${i * j} `;
+        }
+        str += "\n";
+      }
+      console.log(str);
+      
     </script>
   </body>
 </html>

@@ -7,12 +7,18 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="showbox"></div>
-
-    <script >
-      (function IIFE() {
-        console.log("立即函式", IIFE);
-      })();
+    <script>
+      let even = 0;
+      let odd = 0;
+      for (let i = 0; i <= 100; i++) {
+        if (i % 2 == 0) {
+          even = even + i;
+        } else {
+          odd = odd + i;
+        }
+      }
+      console.log("基數", odd);
+      console.log("偶數", even);
     </script>
   </body>
 </html>

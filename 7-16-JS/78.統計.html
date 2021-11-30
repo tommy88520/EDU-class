@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const str = "kvneovncieovncieoce";
+      const arr = {};
+      for (let i = 0; i < str.length; i++) {
+        let chars = str[i];
+        if (arr[chars]) {
+          arr[chars]++;
+        } else {
+          arr[chars] = 1;
+        }
+        // return chars
+      }
+      let max = 0;
+      let ch = "";
+      // let chars = str[i]
+      // console.log(arr);
+      for (let k in arr) {
+        if (arr[k] > max) {
+          max = arr[k];
+          ch = k;
+        }
+      }
+      console.log(max);
+      console.log(ch); //最多的字母
+    </script>
+  </body>
+</html>

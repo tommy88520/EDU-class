@@ -11,16 +11,30 @@
 
     <script>
       const info = document.querySelector("#info");
+      // const f = (function () {
+      //   let n = 0;//可以將變輸設定在function裏
+      //   return function (a = 1) {
+      //     n += a;
+      //     return n;
+      //   };
+      // })(); //立即執行函數
+      // info.innerHTML += f() +'<br>';
+      // info.innerHTML += f(5) +'<br>';
+      // info.innerHTML += f(8) +'<br>';
+
       const f = (function () {
-        let n = 0;//可以將變輸設定在function裏 
+        let t = 0;
         return function (a = 1) {
-          n += a;
-          return n;
+          // a=1是預設值
+          t += a;
+          return t;
         };
       })();
-      info.innerHTML += f() +'<br>';
-      info.innerHTML += f(5) +'<br>';
-      info.innerHTML += f(8) +'<br>';
+      
+      console.log(f());
+      console.log(f(5));
+      console.log(f(10));
+
     </script>
   </body>
 </html>

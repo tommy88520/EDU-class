@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+     function Star(a, b, c){
+       //一定要大寫
+       this.name = a
+       this.age = b
+       this.sex = c
+       this.sing = function(sing){
+         console.log(sing);
+       }
+     }
+     const profile = new Star('Jake', 18, 'male');
+     profile.sing('好棒棒')
+     console.log(profile);
+    </script>
+  </body>
+</html>
